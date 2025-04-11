@@ -1,0 +1,49 @@
+footer {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    height: 300px;
+    background-color: #1f1f1f ;
+}
+
+footer p {
+    color: white;
+    margin: 0;
+}
+
+.footer-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    width: 100%;
+    max-width: 1200px;
+}
+
+.links-title, .membros-title {
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+.footer-infos-content {
+    display: flex;
+    justify-content: space-around;
+}
+
+.links-lista, .membros-lista {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    color: white;
+}
+
+.links-lista a {
+    color: white;
+}
+
+.direitos-autorais {
+    text-align: center;
+}
+
+.turma {
+    text-align: center;
+}

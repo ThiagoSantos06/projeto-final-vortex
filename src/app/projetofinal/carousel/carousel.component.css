@@ -1,0 +1,17 @@
+.carousel {
+    margin-top: 5rem;
+}
+
+.carousel-indicators li {
+    list-style-type: none; /* Remove qualquer estilo padrão */
+}
+
+.carousel-inner {
+    border-radius: 10px;
+}
+
+.d-block {
+    border-radius: 10px;
+    object-fit: contain;
+    width: 100%;
+}
