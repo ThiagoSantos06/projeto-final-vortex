@@ -20,7 +20,7 @@ export class CadastroComponent {
   password = ""
   name = ""
 
-  cadastrar() {
+  signUp() {
     const form = {username: this.username, password: this.password, name: this.name} as SignUpForm
     this.userRest.signUp(form).subscribe({
       next: () => {

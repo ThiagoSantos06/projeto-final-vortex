@@ -1,12 +1,12 @@
 <main>
-    <form action="/home">
+    <div class="form">
         <h2 class="login-title">Faça seu login</h2>
 
         <div class="user-container">
             <label for="nome">Seu usuário</label>
             <div class="input-user">
                 <img src="assets/user-icon.png" alt="Ícone de usuário">
-                <input type="text" id="nome" placeholder="Digite seu username">
+                <input type="text" id="nome" placeholder="Digite seu username" [(ngModel)]="username">
             </div>
         </div>
 
@@ -14,12 +14,12 @@
             <label for="senha">Sua senha</label>
             <div class="input-password">
                 <img src="assets/padlock-icon.png" alt="Ícone de email">
-                <input type="password" id="senha" placeholder="Digite sua senha">
+                <input type="password" id="senha" placeholder="Digite sua senha" [(ngModel)]="password">
             </div>
         </div>
 
-        <div class="button-container"><button type="submit" class="btn-cadastrar">Acessar</button></div>
+        <div class="button-container"><button type="submit" class="btn-cadastrar" (click)="signIn()">Acessar</button></div>
 
         <p class="text-login">Não possui um cadastro?<a href="/cadastro" class="login-link">Faça um!</a></p>
-    </form>
+    </div>
 </main>
