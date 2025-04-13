@@ -1,0 +1,33 @@
+<main>
+    <div class="form">
+        <h2 class="cadastro-title">Faça seu cadastro</h2>
+
+        <div class="user-container">
+            <label for="nome">Seu nome</label>
+            <div class="input-user">
+                <img src="assets/name-icon.png" alt="Ícone de usuário">
+                <input required="" type="text" id="nome" placeholder="Digite seu nome" [(ngModel)]="name">
+            </div>
+        </div>
+
+        <div class="username-container">
+            <label for="username">Seu usuário</label>
+            <div class="input-username">
+                <img src="assets/user-icon.png" alt="Ícone de username">
+                <input required="" type="text" id="username" placeholder="Digite seu username" [(ngModel)]="username">
+            </div>
+        </div>
+
+        <div class="password-container">
+            <label for="senha">Sua senha</label>
+            <div class="input-password">
+                <img src="assets/padlock-icon.png" alt="Ícone de email">
+                <input required="" type="password" id="senha" placeholder="Digite sua senha" [(ngModel)]="password">
+            </div>
+        </div>
+
+        <div class="button-container"><button class="btn-cadastrar" (click)="cadastrar()">Cadastrar</button></div>
+
+        <p class="text-login">Possui um cadastro?<a href="/login" class="login-link">Faça login!</a></p>
+    </div>
+</main>
