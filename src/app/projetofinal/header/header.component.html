@@ -1,12 +1,39 @@
 <header>
     <div class="header-container">
-        <div class="logo-content">
-            <img src="assets/logo.png" alt="" class="logo-image">
-        </div>
-
+      <div class="logo-content">
+        <a [routerLink]="'/'"><img src="assets/logo.png" alt="" class="logo-image"></a>
+      </div>
+  
+      <div class="content-logout">
         <div class="pesquisar-container">
-            <input type="text" class="input-pesquisar" placeholder="Pesquise um jogo">
-            <img src="assets/lupa.png" alt="" class="lupa-image">
+          <input
+            #searchInput
+            type="text"
+            class="input-pesquisar"
+            placeholder="Pesquise um jogo"
+            [(ngModel)]="searchText"
+            (input)="filtrarJogos()"
+          />
+
+          <img src="assets/lupa.png" alt="Ícone de lupa" class="lupa-image">
+  
+          <!-- Exibe as sugestões se houver texto no campo de pesquisa -->
+          <div #suggestionsList class="sugestoes" *ngIf="showSuggestions && filteredGames.length > 0">
+            <div class="sugestao" *ngFor="let game of filteredGames">
+              <img [src]="game.image" alt="Imagem do jogo">
+              <span class="nome-game">{{ game.name }}</span>
+            </div>
+          </div>
         </div>
+  
+        <div class="logout-container">
+          <img src="assets/user-icon-logout.png" alt="Ícone de usuário" class="image-user">
+          <div class="logout-saudacao-text">
+            <p class="saudacao-text">Olá, {{name}}</p>
+            <a href="" class="logout-text">Fazer logout</a>
+          </div>
+        </div>
+      </div>
     </div>
-</header>
+  </header>
+  

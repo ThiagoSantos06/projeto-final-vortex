@@ -20,6 +20,24 @@ main {
     justify-content: center;
 }
   
+.titulo-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.adicionar-jogo {
+    background: purple;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.adicionar-jogo:hover {
+    background-color: rgb(110, 0, 110);
+}
+
 .jogos-title {
     color: white;
 }
@@ -68,4 +86,146 @@ main {
   
 .botao a:hover {
     background-color: rgb(110, 0, 110);
+}
+
+.modal-backdrop {
+    position: fixed;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.6);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 999;
+    padding: 1rem;
+}
+  
+.modal-content {
+    background-color: white;
+    padding: 2rem;
+    border-radius: 12px;
+    width: 100%;
+    max-width: 900px;
+    overflow-y: auto; 
+}
+
+.modal-content h2 {
+    margin: 0;
+    margin-bottom: 20px;
+    text-align: center;
+    font-weight: bold;
+}
+
+.nomeEimagem-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nomeJogo, .imagemJogo, .origemJogo {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.origemJogo {
+    width: 20%;
+}
+
+.nomeJogo input {
+    padding: 5px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    outline: none;
+    width: 100%;
+}
+
+.imagemJogo input {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 5px;
+}
+
+.select-origemJogo, .select-categoriaJogo {
+    padding: 5px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    outline: none;
+}
+
+.descricaoEcategoria-container {
+    margin-top: 20px;
+    justify-content: space-between;
+    display: flex;
+}
+
+.descricaoJogo {
+    display: flex;
+    flex-direction: column;
+    width: 75.5%;
+    gap: 5px;
+}
+
+.descricaoJogo textarea {
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  outline: none;
+  height: 150px;
+}
+
+.categoriaJogo {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    width: 20%;
+}
+
+.modal-buttons {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 1rem;
+}
+
+.links-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.link-content {
+    display: flex;
+    flex-direction: column;
+}
+
+.input-link {
+    padding: 5px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    outline: none;
+}
+
+.botoes-container {
+    margin-top: 50px;
+    display: flex;
+    gap: 20px;
+    justify-content: flex-end;
+}
+
+.botao-adicionar {
+    border: none;
+    padding: 10px;
+    font-weight: bold;
+    background-color: purple;
+    color: white;
+    border-radius: 5px;
+}
+
+.botao-cancelar {
+    border: none;
+    padding: 10px;
+    background-color: red;
+    font-weight: bold;
+    color: white;
+    border-radius: 5px;
 }

@@ -4,6 +4,7 @@ import { CadastroComponent } from './projetofinal/cadastro/cadastro.component';
 import { LoginComponent } from './projetofinal/login/login.component';
 import { EscolhasRecomendacoesComponent } from './projetofinal/escolhas-recomendacoes/escolhas-recomendacoes.component';
 import { AuthGuard } from './auth.guard';
+import { JogoInfoComponent } from './projetofinal/jogo-info/jogo-info.component';
 
 export const routes: Routes = [
     // {
@@ -36,5 +37,9 @@ export const routes: Routes = [
 
     {
         path: 'escolhas-recomendacoes', component: EscolhasRecomendacoesComponent, canActivate: [AuthGuard]
+    },
+
+    {
+        path: 'jogo-info', component: JogoInfoComponent, canActivate: [AuthGuard]
     }
 ];

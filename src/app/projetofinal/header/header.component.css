@@ -12,7 +12,7 @@ header {
     justify-content: space-between;
     width: 60%;
     height: 100%;
-    min-width: 1200px;
+    max-width: 1200px;
 }
 
 .logo-content {
@@ -21,7 +21,7 @@ header {
 }
 
 .logo-image {
-    width: 50px;
+    width: 75px;
     object-fit: contain;
 }
 
@@ -46,4 +46,83 @@ header {
 
 .lupa-image {
     cursor: pointer;
+}
+
+.content-logout {
+    display: flex;
+    align-items: center;
+    height: 100%;
+    gap: 50px;
+}
+
+.logout-container {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.image-user {
+    width: 20px;
+    object-fit: contain;
+}
+
+.logout-text, .saudacao-text {
+    margin: 0;
+    color: white;
+}
+
+.logout-text {
+    color:rgb(22, 162, 197) ;
+}
+
+
+
+
+
+
+.pesquisar-container {
+  position: relative;
+  width: 350px;
+}
+
+.input-pesquisar {
+  width: 100%;
+  padding: 8px 12px;
+  border-radius: 4px;
+}
+
+.nome-game {
+    color: white;
+    font-weight: bold;
+}
+
+.sugestoes {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  background-color: #1d292e;
+  z-index: 10;
+  max-height: 200px;
+  overflow-y: auto;
+  border-radius: 4px;
+}
+
+.sugestao {
+  display: flex;
+  align-items: center;
+  padding: 6px 10px;
+  cursor: pointer;
+}
+
+.sugestao:hover {
+    background-color: #353535;
+}
+
+.sugestao img {
+  width: 65px;
+  height: 40px;
+  margin-right: 10px;
+  object-fit: cover;
+  border-radius: 4px;
 }

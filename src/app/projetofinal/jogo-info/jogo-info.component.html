@@ -1,0 +1,45 @@
+<div class="body">
+    <div class="page-wrapper">
+      <app-header></app-header>
+  
+      <main class="main-container">
+        <div class="main-content">
+            <div class="jogo-infos">
+                <div class="info-container">
+                    <img src="assets/valorant.png" alt="">
+                    <div>
+                        <h2>Valorant</h2>
+                        <p>Valorant é um jogo de tiro tático em primeira pessoa desenvolvido pela Riot Games. Ele combina mecânicas clássicas de FPS, como precisão e estratégia, com habilidades únicas de personagens chamados "agentes". Em partidas 5v5, um time tenta plantar uma bomba (chamada de spike) enquanto o outro tenta impedir. Além das armas, cada agente possui habilidades especiais que trazem mais profundidade e variedade ao jogo. Lançado em 2020, Valorant é conhecido pelo seu foco competitivo e pela jogabilidade estratégica, lembrando jogos como Counter-Strike, mas com um toque moderno e mais dinâmico.</p>
+                    </div>
+                </div>
+    
+                <div class="links-container">
+                    <div>
+                        <h3>Link do YouTube</h3>
+                        <a href="https://www.youtube.com/@valorant/videos">https://youtu.be/OHzUoFKPUB0</a>
+                    </div>
+
+                    <div>
+                        <h3>Link da Twitch</h3>
+                        <a href="https://www.youtube.com/@valorant/videos">https://www.twitch.tv/valorant</a>
+                    </div>
+
+                    <div>
+                        <h3>Link do Jogo</h3>
+                        <a href="https://www.youtube.com/@valorant/videos">https://playvalorant.com/pt-br/</a>
+                    </div>
+
+                    <div>
+                        <h3>Outros</h3>
+                        <p *ngIf="linkJogos.outro === ''" class="semConteudo">Sem conteúdo</p>
+                        <a href="https://www.youtube.com/@valorant/videos"></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+      </main>
+  
+      <app-footer></app-footer>
+    </div>
+</div>
+  

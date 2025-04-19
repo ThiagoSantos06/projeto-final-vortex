@@ -1,45 +1,87 @@
 <main>
-    <h1 class="jogos-title" id="jogos">Jogos</h1>
+    <div class="titulo-container">
+        <h1 class="jogos-title" id="jogos">Jogos</h1>
+        <div class="adicionar-jogo" (click)="abrirModal()"><img src="assets/adicionar-icon.png" alt="Botão adicionar jogos"></div>
+    </div>
     <div class="jogos-container">
         <div class="jogos-content">
             <img src="assets/valorant.png" alt="" class="valorant-image">
             <div class="infos-content">
                 <h2 class="title">Valorant</h2>
                 <p class="paragraph">Valorant é um jogo de tiro tático em primeira pessoa desenvolvido pela Riot Games. Ele combina mecânicas clássicas de FPS, como precisão e estratégia, com habilidades únicas de personagens chamados "agentes". Em partidas 5v5, um time tenta plantar uma bomba (chamada de spike) enquanto o outro tenta impedir. Além das armas, cada agente possui habilidades especiais que trazem mais profundidade e variedade ao jogo. Lançado em 2020, Valorant é conhecido pelo seu foco competitivo e pela jogabilidade estratégica, lembrando jogos como Counter-Strike, mas com um toque moderno e mais dinâmico.</p>
-                <div class="botao"><a href="">Ver mais</a></div>
+                <div class="botao"><a [routerLink]="'/jogo-info'">Ver mais</a></div>
             </div>
         </div>
     </div>
 
-    <div class="jogos-container">
-        <div class="jogos-content">
-            <img src="assets/valorant.png" alt="" class="valorant-image">
-            <div class="infos-content">
-                <h2 class="title">Valorant</h2>
-                <p class="paragraph">Valorant é um jogo de tiro tático em primeira pessoa desenvolvido pela Riot Games. Ele combina mecânicas clássicas de FPS, como precisão e estratégia, com habilidades únicas de personagens chamados "agentes". Em partidas 5v5, um time tenta plantar uma bomba (chamada de spike) enquanto o outro tenta impedir. Além das armas, cada agente possui habilidades especiais que trazem mais profundidade e variedade ao jogo. Lançado em 2020, Valorant é conhecido pelo seu foco competitivo e pela jogabilidade estratégica, lembrando jogos como Counter-Strike, mas com um toque moderno e mais dinâmico.</p>
-                <div class="botao"><a href="">Ver mais</a></div>
-            </div>
-        </div>
-    </div>
+    <div class="modal-backdrop" *ngIf="mostrarModal" (click)="fecharModal()">
+        <div class="modal-content" (click)="$event.stopPropagation()">
+          <h2>Adicionar novo jogo</h2>
 
-    <div class="jogos-container">
-        <div class="jogos-content">
-            <img src="assets/valorant.png" alt="" class="valorant-image">
-            <div class="infos-content">
-                <h2 class="title">Valorant</h2>
-                <p class="paragraph">Valorant é um jogo de tiro tático em primeira pessoa desenvolvido pela Riot Games. Ele combina mecânicas clássicas de FPS, como precisão e estratégia, com habilidades únicas de personagens chamados "agentes". Em partidas 5v5, um time tenta plantar uma bomba (chamada de spike) enquanto o outro tenta impedir. Além das armas, cada agente possui habilidades especiais que trazem mais profundidade e variedade ao jogo. Lançado em 2020, Valorant é conhecido pelo seu foco competitivo e pela jogabilidade estratégica, lembrando jogos como Counter-Strike, mas com um toque moderno e mais dinâmico.</p>
-                <div class="botao"><a href="">Ver mais</a></div>
+          <div class="nomeEimagem-container">
+            <div class="nomeJogo">
+              <label for="nomeJogo">Nome do jogo</label>
+              <input type="text" name="nomeJogo" placeholder="Marvel Rivals">
             </div>
-        </div>
-    </div>
-    <div class="jogos-container">
-        <div class="jogos-content">
-            <img src="assets/valorant.png" alt="" class="valorant-image">
-            <div class="infos-content">
-                <h2 class="title">Valorant</h2>
-                <p class="paragraph">Valorant é um jogo de tiro tático em primeira pessoa desenvolvido pela Riot Games. Ele combina mecânicas clássicas de FPS, como precisão e estratégia, com habilidades únicas de personagens chamados "agentes". Em partidas 5v5, um time tenta plantar uma bomba (chamada de spike) enquanto o outro tenta impedir. Além das armas, cada agente possui habilidades especiais que trazem mais profundidade e variedade ao jogo. Lançado em 2020, Valorant é conhecido pelo seu foco competitivo e pela jogabilidade estratégica, lembrando jogos como Counter-Strike, mas com um toque moderno e mais dinâmico.</p>
-                <div class="botao"><a href="">Ver mais</a></div>
+  
+            <div class="imagemJogo">
+              <label for="imagem">Imagem do Jogo</label>
+              <input type="file" id="imagem">
             </div>
+
+            <div class="origemJogo">
+              <label for="">Origem do Jogo</label>
+              <select [(ngModel)]="novoJogo.origemJogo" class="select-origemJogo">
+                <option value="Jogo comercial" selected>Jogo comercial</option>
+                <option value="Jogo escolar">Jogo escolar</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="descricaoEcategoria-container">
+            <div class="descricaoJogo">
+              <label for="">Descrição</label>
+              <textarea [(ngModel)]="novoJogo.descricao"></textarea>
+            </div>
+
+            <div class="categoriaJogo">
+              <label for="">Categoria</label>
+              <select [(ngModel)]="novoJogo.categoria" class="select-categoriaJogo">
+                <option value="" disabled selected hidden>Selecione</option>
+                <option value="comercial">FPS</option>
+                <option value="escolar">Terror</option>
+                <option value="escolar">RPG</option>
+                <option value="escolar">Corrida</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="links-container">
+            <div class="link-content">
+              <label for="">Link YouTube</label>
+              <input type="text" class="input-link" placeholder="Link do YouTube">
+            </div>
+
+            <div class="link-content">
+              <label for="">Link Twitch</label>
+              <input type="text" class="input-link" placeholder="Link da Twitch" >
+            </div>
+
+            <div class="link-content"  *ngIf="novoJogo.origemJogo === 'Jogo comercial'">
+              <label for="">Link do Jogo</label>
+              <input type="text" class="input-link" placeholder="Link do Jogo">
+            </div>
+
+            <div class="link-content">
+              <label for="">Outro</label>
+              <input type="text" class="input-link" placeholder="Outro tipo de link">
+            </div>
+          </div>
+
+          <div class="botoes-container">
+            <button class="botao-cancelar" (click)="fecharModal()">Cancelar</button>
+            <button class="botao-adicionar" >Adicionar</button>
+          </div>
         </div>
     </div>
 </main>
