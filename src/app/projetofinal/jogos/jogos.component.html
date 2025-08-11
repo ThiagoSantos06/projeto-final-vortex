@@ -3,12 +3,15 @@
         <h1 class="jogos-title" id="jogos">Jogos</h1>
         <div class="adicionar-jogo" (click)="abrirModal()"><img src="assets/adicionar-icon.png" alt="Botão adicionar jogos"></div>
     </div>
-    <div class="jogos-container">
+    <div class="jogos-container" *ngFor="let jogo of jogos">
         <div class="jogos-content">
-            <img src="assets/valorant.png" alt="" class="valorant-image">
+            <img [src]="jogo.imagem" alt="" class="valorant-image">
             <div class="infos-content">
-                <h2 class="title">Valorant</h2>
-                <p class="paragraph">Valorant é um jogo de tiro tático em primeira pessoa desenvolvido pela Riot Games. Ele combina mecânicas clássicas de FPS, como precisão e estratégia, com habilidades únicas de personagens chamados "agentes". Em partidas 5v5, um time tenta plantar uma bomba (chamada de spike) enquanto o outro tenta impedir. Além das armas, cada agente possui habilidades especiais que trazem mais profundidade e variedade ao jogo. Lançado em 2020, Valorant é conhecido pelo seu foco competitivo e pela jogabilidade estratégica, lembrando jogos como Counter-Strike, mas com um toque moderno e mais dinâmico.</p>
+                <div class="infos">
+                  <h2 class="title">{{jogo.nome}}</h2>
+                  <p class="origem">{{jogo.origemJogo}}</p>
+                  <p class="paragraph">{{jogo.descricao}}</p>
+                </div>
                 <div class="botao"><a [routerLink]="'/jogo-info'">Ver mais</a></div>
             </div>
         </div>
@@ -21,12 +24,12 @@
           <div class="nomeEimagem-container">
             <div class="nomeJogo">
               <label for="nomeJogo">Nome do jogo</label>
-              <input type="text" name="nomeJogo" placeholder="Marvel Rivals">
+              <input type="text" name="nomeJogo" placeholder="Marvel Rivals" [(ngModel)]="novoJogo.nome">
             </div>
   
             <div class="imagemJogo">
               <label for="imagem">Imagem do Jogo</label>
-              <input type="file" id="imagem">
+              <input type="file" id="imagem" accept="image/*" (change)="onFileSelected()">
             </div>
 
             <div class="origemJogo">
@@ -48,10 +51,7 @@
               <label for="">Categoria</label>
               <select [(ngModel)]="novoJogo.categoria" class="select-categoriaJogo">
                 <option value="" disabled selected hidden>Selecione</option>
-                <option value="comercial">FPS</option>
-                <option value="escolar">Terror</option>
-                <option value="escolar">RPG</option>
-                <option value="escolar">Corrida</option>
+                <option *ngFor="let categoria of categorias" [value]="categoria.name">{{categoria.name}}</option>
               </select>
             </div>
           </div>
@@ -59,28 +59,28 @@
           <div class="links-container">
             <div class="link-content">
               <label for="">Link YouTube</label>
-              <input type="text" class="input-link" placeholder="Link do YouTube">
+              <input type="text" class="input-link" placeholder="Link do YouTube" [(ngModel)]="novoJogo.link.youtube">
             </div>
 
             <div class="link-content">
               <label for="">Link Twitch</label>
-              <input type="text" class="input-link" placeholder="Link da Twitch" >
+              <input type="text" class="input-link" placeholder="Link da Twitch" [(ngModel)]="novoJogo.link.twitch">
             </div>
 
             <div class="link-content"  *ngIf="novoJogo.origemJogo === 'Jogo comercial'">
               <label for="">Link do Jogo</label>
-              <input type="text" class="input-link" placeholder="Link do Jogo">
+              <input type="text" class="input-link" placeholder="Link do Jogo" [(ngModel)]="novoJogo.link.gameLink">
             </div>
 
             <div class="link-content">
               <label for="">Outro</label>
-              <input type="text" class="input-link" placeholder="Outro tipo de link">
+              <input type="text" class="input-link" placeholder="Outro tipo de link" [(ngModel)]="novoJogo.link.other">
             </div>
           </div>
 
           <div class="botoes-container">
             <button class="botao-cancelar" (click)="fecharModal()">Cancelar</button>
-            <button class="botao-adicionar" >Adicionar</button>
+            <button class="botao-adicionar" (click)="adicionarJogo()">Adicionar</button>
           </div>
         </div>
     </div>
