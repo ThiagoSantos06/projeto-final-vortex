@@ -5,9 +5,9 @@ export type GameRequest = {
     categoria: string;
     origemJogo: 'Jogo comercial' | 'Jogo gratuito';
     link: {
-        youTube: string;
+        youtube: string;
         twitch: string;
-        jogo: string;
-        linkOutro: string;
+        gameLink: string;
+        other: string;
     };
 };
