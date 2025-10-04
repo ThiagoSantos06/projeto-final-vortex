@@ -40,6 +40,6 @@ export const routes: Routes = [
     },
 
     {
-        path: 'jogo-info', component: JogoInfoComponent, canActivate: [AuthGuard]
+        path: 'jogo-info/:id/:nome', component: JogoInfoComponent, canActivate: [AuthGuard]
     }
 ];
