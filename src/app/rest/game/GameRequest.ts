@@ -3,7 +3,7 @@ export type GameRequest = {
     descricao: string;
     imagem: File | string;
     categoria: string;
-    origemJogo: 'Jogo comercial' | 'Jogo gratuito';
+    origemJogo: 'Jogo escolar';
     link: {
         youtube: string;
         twitch: string;

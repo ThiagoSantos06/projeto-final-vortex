@@ -17,4 +17,8 @@ export class GameRest {
     getAllGames() {
         return this.http.get<GameDTO[]>(this.url);
     }
+
+    getGameById(id: number) {
+        return this.http.get<GameDTO>(`${this.url}/${id}`);
+    }
 }

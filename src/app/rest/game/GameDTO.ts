@@ -1,13 +1,14 @@
 export type GameDTO = {
+    id: number;
     nome: string;
     descricao: string;
     imagem: string;
     categoria: string;
     origemJogo: string;
     link: {
-        youTube: string;
+        youtube: string;
         twitch: string;
-        jogo: string;
-        linkOutro: string;
+        gameLink: string;
+        other: string;
     };
 }
