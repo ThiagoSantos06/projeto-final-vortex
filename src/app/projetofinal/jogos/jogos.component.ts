@@ -28,7 +28,7 @@ export class JogosComponent {
     descricao: '',
     imagem: '',
     categoria: '',
-    origemJogo: 'Jogo comercial',
+    origemJogo: 'Jogo escolar',
     link: {
       youtube: '',
       twitch: '',
@@ -69,7 +69,7 @@ export class JogosComponent {
         },
         error: (error) => {
             console.error('Erro ao adicionar o jogo:', error);
-            alert('Erro ao adicionar o jogo. Por favor, tente novamente.');
+            alert('Este jogo já existe tente outro nome.');
         }
     });
   }
@@ -103,5 +103,9 @@ export class JogosComponent {
       };
       reader.readAsDataURL(file);
     }
+  }
+
+  formatNomeParaUrl(nome: string): string {
+    return nome.toLowerCase().replace(/ /g, '-');
   }
 }

@@ -12,6 +12,12 @@ html, .body {
     background-color: #121212;
 }
 
+.imagem-jogo {
+    width: 300px;
+    height: auto;
+    border-radius: 10px;
+}
+
 .page-wrapper {
     display: flex;
     flex-direction: column;

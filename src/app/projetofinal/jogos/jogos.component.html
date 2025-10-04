@@ -9,10 +9,9 @@
             <div class="infos-content">
                 <div class="infos">
                   <h2 class="title">{{jogo.nome}}</h2>
-                  <p class="origem">{{jogo.origemJogo}}</p>
                   <p class="paragraph">{{jogo.descricao}}</p>
                 </div>
-                <div class="botao"><a [routerLink]="'/jogo-info'">Ver mais</a></div>
+                <div class="botao"><a [routerLink]="['/jogo-info', jogo.id, formatNomeParaUrl(jogo.nome)]">Ver mais</a></div>
             </div>
         </div>
     </div>
@@ -23,19 +22,18 @@
 
           <div class="nomeEimagem-container">
             <div class="nomeJogo">
-              <label for="nomeJogo">Nome do jogo</label>
+              <label for="nomeJogo">Nome do jogo *</label>
               <input type="text" name="nomeJogo" placeholder="Marvel Rivals" [(ngModel)]="novoJogo.nome">
             </div>
   
             <div class="imagemJogo">
-              <label for="imagem">Imagem do Jogo</label>
+              <label for="imagem">Imagem do Jogo *</label>
               <input type="file" id="imagem" accept="image/*" (change)="onFileSelected()">
             </div>
 
             <div class="origemJogo">
               <label for="">Origem do Jogo</label>
               <select [(ngModel)]="novoJogo.origemJogo" class="select-origemJogo">
-                <option value="Jogo comercial" selected>Jogo comercial</option>
                 <option value="Jogo escolar">Jogo escolar</option>
               </select>
             </div>
@@ -43,12 +41,12 @@
 
           <div class="descricaoEcategoria-container">
             <div class="descricaoJogo">
-              <label for="">Descrição</label>
+              <label for="">Descrição *</label>
               <textarea [(ngModel)]="novoJogo.descricao"></textarea>
             </div>
 
             <div class="categoriaJogo">
-              <label for="">Categoria</label>
+              <label for="">Categoria *</label>
               <select [(ngModel)]="novoJogo.categoria" class="select-categoriaJogo">
                 <option value="" disabled selected hidden>Selecione</option>
                 <option *ngFor="let categoria of categorias" [value]="categoria.name">{{categoria.name}}</option>
@@ -58,17 +56,17 @@
 
           <div class="links-container">
             <div class="link-content">
-              <label for="">Link YouTube</label>
+              <label for="">Link YouTube (Gameplay)</label>
               <input type="text" class="input-link" placeholder="Link do YouTube" [(ngModel)]="novoJogo.link.youtube">
             </div>
 
             <div class="link-content">
-              <label for="">Link Twitch</label>
+              <label for="">Link Twitch (Opcional)</label>
               <input type="text" class="input-link" placeholder="Link da Twitch" [(ngModel)]="novoJogo.link.twitch">
             </div>
 
-            <div class="link-content"  *ngIf="novoJogo.origemJogo === 'Jogo comercial'">
-              <label for="">Link do Jogo</label>
+            <div class="link-content"  *ngIf="novoJogo.origemJogo === 'Jogo escolar'">
+              <label for="">Link do Jogo (Obrigatório)</label>
               <input type="text" class="input-link" placeholder="Link do Jogo" [(ngModel)]="novoJogo.link.gameLink">
             </div>
 

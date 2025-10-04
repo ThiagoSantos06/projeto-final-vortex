@@ -1,45 +1,62 @@
-<div class="body">
-    <div class="page-wrapper">
-      <app-header></app-header>
-  
-      <main class="main-container">
-        <div class="main-content">
-            <div class="jogo-infos">
-                <div class="info-container">
-                    <img src="assets/valorant.png" alt="">
-                    <div>
-                        <h2>Valorant</h2>
-                        <p>Valorant é um jogo de tiro tático em primeira pessoa desenvolvido pela Riot Games. Ele combina mecânicas clássicas de FPS, como precisão e estratégia, com habilidades únicas de personagens chamados "agentes". Em partidas 5v5, um time tenta plantar uma bomba (chamada de spike) enquanto o outro tenta impedir. Além das armas, cada agente possui habilidades especiais que trazem mais profundidade e variedade ao jogo. Lançado em 2020, Valorant é conhecido pelo seu foco competitivo e pela jogabilidade estratégica, lembrando jogos como Counter-Strike, mas com um toque moderno e mais dinâmico.</p>
-                    </div>
-                </div>
-    
-                <div class="links-container">
-                    <div>
-                        <h3>Link do YouTube</h3>
-                        <a href="https://www.youtube.com/@valorant/videos">https://youtu.be/OHzUoFKPUB0</a>
-                    </div>
+<div class="body" *ngIf="jogo">
+  <div class="page-wrapper">
+    <app-header></app-header>
 
-                    <div>
-                        <h3>Link da Twitch</h3>
-                        <a href="https://www.youtube.com/@valorant/videos">https://www.twitch.tv/valorant</a>
-                    </div>
+    <main class="main-container">
+      <div class="main-content">
+        <div class="jogo-infos">
 
-                    <div>
-                        <h3>Link do Jogo</h3>
-                        <a href="https://www.youtube.com/@valorant/videos">https://playvalorant.com/pt-br/</a>
-                    </div>
-
-                    <div>
-                        <h3>Outros</h3>
-                        <p *ngIf="linkJogos.outro === ''" class="semConteudo">Sem conteúdo</p>
-                        <a href="https://www.youtube.com/@valorant/videos"></a>
-                    </div>
-                </div>
+          <!-- Imagem e descrição -->
+          <div class="info-container">
+            <img [src]="jogo.imagem" [alt]="jogo.nome" class="imagem-jogo">
+            <div>
+              <h2>{{ jogo.nome }}</h2>
+              <p>{{ jogo.descricao }}</p>
             </div>
+          </div>
+
+          <!-- Links -->
+          <div class="links-container">
+            <div *ngIf="jogo.link.youtube">
+              <h3>Link do YouTube</h3>
+              <a [href]="jogo.link.youtube" target="_blank">Link do Youtube</a>
+            </div>
+
+            <div *ngIf="!jogo.link.twitch">
+              <h3>Link da Twitch</h3>
+              <p class="semConteudo">Sem conteúdo</p>
+            </div>
+
+            <div *ngIf="jogo.link.twitch">
+              <h3>Link da Twitch</h3>
+              <a [href]="jogo.link.twitch" target="_blank">Link da Twitch</a>
+            </div>
+
+            <div *ngIf="jogo.link.gameLink">
+              <h3>Link do Jogo</h3>
+              <a [href]="jogo.link.gameLink" target="_blank">Link do jogo</a>
+            </div>
+
+            <div *ngIf="jogo.link.other">
+              <h3>Outros</h3>
+              <a [href]="jogo.link.other" target="_blank">Outros links</a>
+            </div>
+
+            <div *ngIf="!jogo.link.other">
+              <h3>Outros</h3>
+              <p class="semConteudo">Sem conteúdo</p>
+            </div>
+
+            <!-- Caso não haja nenhum link -->
+            <div *ngIf="!jogo.link.youtube && !jogo.link.twitch && !jogo.link.gameLink && !jogo.link.other">
+              <p class="semConteudo">Sem conteúdo</p>
+            </div>
+          </div>
+
         </div>
-      </main>
-  
-      <app-footer></app-footer>
-    </div>
+      </div>
+    </main>
+
+    <app-footer></app-footer>
+  </div>
 </div>
-  
