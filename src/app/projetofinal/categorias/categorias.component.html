@@ -1,6 +1,10 @@
-<div class="categorias-container" id="categorias">
-    <h1 class="categorias-title">Categorias</h1>
-    <div class="categorias-content">
-        <div class="categoria"  *ngFor="let categoria of categories"><a href="#">{{categoria.name}}</a></div>
+<section>
+    <div class="container-categorias">
+        <h2 class="title-categoria">Categorias</h2>
+        <div class="categorias-grid">
+            <div class="categoria-card" *ngFor="let categoria of categories">
+            <h3 class="categoria-name">{{ categoria.name }}</h3>
+            </div>
+        </div>
     </div>
-</div>
+</section>
