@@ -1,0 +1,116 @@
+section {
+    margin-top: 5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.secao1 {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 80%;
+}
+
+.container-imagem {
+    position: relative;
+}
+
+.imagem-secao1 {
+    border-radius: 20px;
+    box-shadow: 0 0 15px #6e0e81, 0 0 30px #9F07BC80;
+    transition: 0.2s;
+}
+
+.imagem-secao1:hover {
+    box-shadow: 0 0 15px #8e19a5, 0 0 30px #9F07BC80;
+}
+
+.imagem-info {
+    display: flex;
+    position: absolute;
+    bottom: -50px;
+    left: 85px;
+    gap: 20px;
+}
+
+.alunos-quadrado, .projeto-quadrado {
+    width: 170px;
+    height: 90px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    background-color: #1C1C21;
+    border: 1px solid #303030;
+    border-radius: 10px;
+    margin: 0;
+}
+
+.quantidade-alunos, .ano-projeto {
+    color: #C23FD9;
+    font-weight: bold;
+    margin: 0;
+}
+
+.text-projeto, .text-alunos {
+    color: #B9B9B9;
+    margin: 0;
+}
+
+.container-vortex {
+    width: 80%;
+}
+
+.title {
+    color: #C23FD9;
+    font-weight: bold;
+    font-size: 3rem;
+}
+
+.paragraph {
+    color: #B9B9B9;
+    font-size: 1.5rem;
+    width: 400px;
+}
+
+.botoes {
+    display: flex;
+    margin-top: 2rem;
+    gap: 24px;
+}
+
+.botao1 {
+    background-color: #C23FD9;
+    color: white;
+    font-weight: bold;
+    text-decoration: none;
+    border-radius: 8px;
+    padding: 1rem 2rem;
+    display: flex;
+    align-items: center;
+    transition: 0.2s;
+}
+
+.botao1:hover {
+    background-color: #83029c;
+    transform: scale(1.05);
+}
+
+.botao2 {
+    border: 2px solid #C23FD9;
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    padding: 0.5rem 3rem;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    transition: 0.2s;
+}
+
+.botao2:hover {
+    border: 2px solid #83029c;
+    transform: scale(1.05);
+}
