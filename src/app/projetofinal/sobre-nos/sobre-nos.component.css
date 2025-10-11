@@ -1,0 +1,125 @@
+section {
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    background-color: #121216;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+main {
+    margin-top: 5rem;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+}
+
+.container-titulo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.titulo {
+    color: #C23FD9;
+    font-weight: bold;
+    font-size: 3rem;
+}
+
+.paragrafo-titulo {
+    color: #B9B9B9;
+    font-size: 1.5rem;
+}
+
+.container-projeto, .container-equipe, .container-data, .container-tecnologias {
+    display: flex;
+    flex-direction: column;
+    background-color: #1C1C21;
+    border: 1px solid #303030;
+    padding: 2rem;
+    border-radius: 10px;
+    gap: 1rem;
+    width: 50%;
+}
+
+.container-imagem-projeto, .container-imagem-equipe, .container-imagem-data {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.imagem-projeto, .container-imagem-equipe, .container-imagem-data {
+    width: 35px;
+    object-fit: contain;
+}
+
+.titulo-projeto, .titulo-equipe, .titulo-data, .titulo-tecnologias {
+    margin: 0;
+    color: #fff;
+    text-wrap: nowrap;
+}
+
+.descricao-1-projeto {
+    color: #B9B9B9;
+    margin: 0;
+    margin-bottom: 1rem;
+}
+
+.descricao-2-projeto, .descricao-equipe, .descricao-data, .tecnologia-descricao {
+    color: #B9B9B9;
+    margin: 0;
+}
+
+ul {
+    margin: 0;
+}
+
+.nome-participante {
+    color: #B9B9B9;
+    margin: 0;
+}
+
+.nome-participante::marker {
+  color: #C23FD9;
+  font-size: 1.5rem;
+}
+
+.pai-content-tecnologias {
+    display: flex;
+    justify-content: space-between;
+}
+
+.content-tecnologia {
+    background-color: #26262B;
+    display: flex;
+    flex-direction: column;
+    padding: 1rem 2.5rem;
+    align-items: center;
+    border-radius: 10px;
+}
+
+.tecnologia-nome {
+    margin: 0;
+    color: #F3F3F3;
+    font-weight: bold;
+}
+
+footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #121216;
+    border-top: 2px solid #303030;
+    height: 150px;
+    width: 100%;
+    margin-top: 5rem;
+}
+
+footer p {
+    color: #fff;
+    margin: 0;
+}
