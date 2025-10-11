@@ -5,22 +5,12 @@ import { LoginComponent } from './projetofinal/login/login.component';
 import { EscolhasRecomendacoesComponent } from './projetofinal/escolhas-recomendacoes/escolhas-recomendacoes.component';
 import { AuthGuard } from './auth.guard';
 import { JogoInfoComponent } from './projetofinal/jogo-info/jogo-info.component';
+import { BoasVindasComponent } from './projetofinal/boas-vindas/boas-vindas.component';
+import { SobreNosComponent } from './projetofinal/sobre-nos/sobre-nos.component';
 
 export const routes: Routes = [
-    // {
-    //     path: '', component: ProjetofinalComponent
-    // },
-
-    // {
-    //     path: 'home', component: ProjetofinalComponent
-    // },
-
-    // {
-    //     path: 'login', component: CadastroELoginComponent
-    // }
-
     {
-        path: '', component: ProjetofinalComponent, canActivate: [AuthGuard]
+        path: '', component: BoasVindasComponent  // 👈 tela inicial sem AuthGuard
     },
 
     {
@@ -40,6 +30,14 @@ export const routes: Routes = [
     },
 
     {
+        path: 'sobre-nos', component: SobreNosComponent, canActivate: [AuthGuard]
+    },
+
+    {
         path: 'jogo-info/:id/:nome', component: JogoInfoComponent, canActivate: [AuthGuard]
+    },
+
+    {
+        path: '**', redirectTo: ''  // rota coringa para evitar erros
     }
 ];

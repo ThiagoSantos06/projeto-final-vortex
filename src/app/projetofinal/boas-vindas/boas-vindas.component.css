@@ -1,0 +1,98 @@
+section {
+    height: 100vh;
+    background-color: #121418;
+    display: flex;
+    align-items: center;
+    flex-direction:  column;
+    justify-content: space-evenly;
+}
+
+.titulo-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.title {
+    font-size: 3rem;
+    color: #9F07BC;
+    font-weight: bold;
+}
+
+.subtitle {
+    font-size: 1.5rem;
+    text-align: center;
+    width: 350px;
+    color: #B9B9B9;
+}
+
+.logo-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.fundo-roxo-logo {
+    position: absolute;
+    width: 450px;
+    height: 450px;
+    background: radial-gradient(circle, rgba(163, 44, 187, 0.8) 30%, rgba(132, 38, 151, 0.2) 30%, transparent 100%);
+    filter: blur(50px);
+    z-index: 0;
+    border-radius: 100%;
+}
+
+.logo {
+    width: 250px;
+    object-fit: contain;
+    z-index: 1;
+}
+
+.conta-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.botoes-container {
+    display: flex;
+    gap: 20px;
+}
+
+.paragraph {
+    font-size: 1.5rem;
+    color: #B9B9B9;
+}
+
+.button-login {
+    text-decoration: none;
+    padding: 16px 48px;
+    border-radius: 5px;
+    background-color: #9F07BC;
+    color: white;
+    font-weight: bold;
+    transition: 0.2s;
+    display: flex;
+    align-items: center;
+}
+
+.button-login:hover {
+    background-color: #83029c;
+    transform: scale(1.05);
+}
+
+.button-cadastro {
+    text-decoration: none;
+    padding: 16px 40px;
+    border-radius: 5px;
+    border: 2px solid #9F07BC;
+    color: white;
+    font-weight: bold;
+    transition: 0.2s;
+}
+
+.button-cadastro:hover {
+    border: 2px solid #83029c;
+    transform: scale(1.05);
+}
