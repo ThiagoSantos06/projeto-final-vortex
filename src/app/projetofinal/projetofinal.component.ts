@@ -3,20 +3,18 @@ import { CategoriasComponent } from './categorias/categorias.component';
 import { FooterComponent } from './footer/footer.component';
 import { HeaderComponent } from './header/header.component';
 import { JogosComponent } from './jogos/jogos.component';
-import { CarouselComponent } from './carousel/carousel.component';
-import { RecomendacoesComponent } from './recomendacoes/recomendacoes.component';
+import { VortexGamesComponent } from "./vortex-games/vortex-games.component";
 
 @Component({
   selector: 'app-projetofinal',
   standalone: true,
   imports: [
-    JogosComponent,
     HeaderComponent,
-    FooterComponent,
+    VortexGamesComponent,
     CategoriasComponent,
-    CarouselComponent,
-    RecomendacoesComponent
-  ],
+    JogosComponent,
+    FooterComponent
+],
   templateUrl: './projetofinal.component.html',
   styleUrl: './projetofinal.component.css'
 })
