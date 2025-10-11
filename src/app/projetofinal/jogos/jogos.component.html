@@ -1,85 +1,108 @@
-<main>
+<section>
+  <div class="jogos-container">
     <div class="titulo-container">
-        <h1 class="jogos-title" id="jogos">Jogos</h1>
-        <div class="adicionar-jogo" (click)="abrirModal()"><img src="assets/adicionar-icon.png" alt="Botão adicionar jogos"></div>
-    </div>
-    <div class="jogos-container" *ngFor="let jogo of jogos">
-        <div class="jogos-content">
-            <img [src]="jogo.imagem" alt="" class="valorant-image">
-            <div class="infos-content">
-                <div class="infos">
-                  <h2 class="title">{{jogo.nome}}</h2>
-                  <p class="paragraph">{{jogo.descricao}}</p>
-                </div>
-                <div class="botao"><a [routerLink]="['/jogo-info', jogo.id, formatNomeParaUrl(jogo.nome)]">Ver mais</a></div>
-            </div>
-        </div>
+      <h1 class="title-jogos">Jogos</h1>
+      <div class="adicionar-jogo" (click)="abrirModal()"><img src="assets/adicionar-icon.png" alt="Botão adicionar jogos"></div>
     </div>
 
-    <div class="modal-backdrop" *ngIf="mostrarModal" (click)="fecharModal()">
+    <div *ngFor="let jogo of jogos" class="jogo-card" [routerLink]="['/jogo-info', jogo.id, formatNomeParaUrl(jogo.nome)]">
+      <img [src]="jogo.imagem" alt="" class="imagem-jogo">
+      <div class="jogo-info">
+        <div class="container-jogo-nome">
+          <h3 class="jogo-nome">{{jogo.nome}}</h3>
+          <p class="categoria-jogo">{{jogo.categoria}}</p>
+        </div>
+        <p class="jogo-descricao">{{jogo.descricao}}</p>
+      </div>
+    </div>
+
+    <div class="back-to-top-container">
+      <a href="#jogos" class="voltar-ao-topo-paragrafo">Voltar ao topo ↑</a>
+    </div>
+  </div>
+
+  <div class="modal-backdrop" *ngIf="mostrarModal" (click)="fecharModal()">
         <div class="modal-content" (click)="$event.stopPropagation()">
-          <h2>Adicionar novo jogo</h2>
+          <div class="titulo-container-modal">
+            <img src="assets/modal-imagem.png" alt="" class="imagem-adicionar">
+            <h2 class="texto-adicionarjogo">Adicionar novo jogo</h2>
+            <p class="paragrafo-adicionarjogo">Preencha as informações abaixo para enviar seu jogo</p>
+          </div>
 
           <div class="nomeEimagem-container">
             <div class="nomeJogo">
-              <label for="nomeJogo">Nome do jogo *</label>
+              <label for="nomeJogo" class="nomeJogo-text">Nome do jogo *</label>
               <input type="text" name="nomeJogo" placeholder="Marvel Rivals" [(ngModel)]="novoJogo.nome">
-            </div>
-  
-            <div class="imagemJogo">
-              <label for="imagem">Imagem do Jogo *</label>
-              <input type="file" id="imagem" accept="image/*" (change)="onFileSelected()">
             </div>
 
             <div class="origemJogo">
-              <label for="">Origem do Jogo</label>
+              <label for="" class="nomeJogo-text">Origem do Jogo *</label>
               <select [(ngModel)]="novoJogo.origemJogo" class="select-origemJogo">
                 <option value="Jogo escolar">Jogo escolar</option>
               </select>
             </div>
           </div>
 
-          <div class="descricaoEcategoria-container">
-            <div class="descricaoJogo">
-              <label for="">Descrição *</label>
-              <textarea [(ngModel)]="novoJogo.descricao"></textarea>
+          <div class="categoria-e-iamgem-container">
+            <div class="imagemJogo">
+              <label for="imagem">Imagem do Jogo *</label>
+              <input type="file" id="imagem" accept="image/*" (change)="onFileSelected()">
             </div>
 
             <div class="categoriaJogo">
-              <label for="">Categoria *</label>
-              <select [(ngModel)]="novoJogo.categoria" class="select-categoriaJogo">
-                <option value="" disabled selected hidden>Selecione</option>
-                <option *ngFor="let categoria of categorias" [value]="categoria.name">{{categoria.name}}</option>
-              </select>
+                <label for="">Categoria *</label>
+                <select [(ngModel)]="novoJogo.categoria" class="select-categoriaJogo">
+                  <option value="" disabled selected hidden>Selecione</option>
+                  <option *ngFor="let categoria of categorias" [value]="categoria.name">{{categoria.name}}</option>
+                </select>
+            </div>
+          </div>
+
+          <div class="descricaoEcategoria-container">
+            <div class="descricaoJogo">
+              <label for="">Descrição *</label>
+              <textarea [(ngModel)]="novoJogo.descricao" placeholder="Descreva seu jogo de forma envolvente..."></textarea>
             </div>
           </div>
 
           <div class="links-container">
-            <div class="link-content">
-              <label for="">Link YouTube (Gameplay)</label>
-              <input type="text" class="input-link" placeholder="Link do YouTube" [(ngModel)]="novoJogo.link.youtube">
+            <div class="titulo-links-adicionais">
+                <img src="assets/exportLogo.png" alt="" class="exportar-logo">
+                <p class="links-adicionais-texto">Links adicionais</p>
             </div>
 
-            <div class="link-content">
-              <label for="">Link Twitch (Opcional)</label>
-              <input type="text" class="input-link" placeholder="Link da Twitch" [(ngModel)]="novoJogo.link.twitch">
+            <div class="youtube-twitch-container">
+              <div class="link-content">
+                <label for="">Link YouTube (Gameplay)</label>
+                <input type="text" class="input-link" placeholder="Link do YouTube" [(ngModel)]="novoJogo.link.youtube">
+              </div>
+
+              <div class="link-content">
+                <label for="">Link Twitch (Opcional)</label>
+                <input type="text" class="input-link" placeholder="Link da Twitch" [(ngModel)]="novoJogo.link.twitch">
+              </div>
             </div>
 
-            <div class="link-content"  *ngIf="novoJogo.origemJogo === 'Jogo escolar'">
-              <label for="">Link do Jogo (Obrigatório)</label>
-              <input type="text" class="input-link" placeholder="Link do Jogo" [(ngModel)]="novoJogo.link.gameLink">
-            </div>
+            <div class="jogo-outros-container">
+              <div class="link-content"  *ngIf="novoJogo.origemJogo === 'Jogo escolar'">
+                <label for="">Link do Jogo (Obrigatório)</label>
+                <input type="text" class="input-link" placeholder="Link do Jogo" [(ngModel)]="novoJogo.link.gameLink">
+              </div>
 
-            <div class="link-content">
-              <label for="">Outro</label>
-              <input type="text" class="input-link" placeholder="Outro tipo de link" [(ngModel)]="novoJogo.link.other">
+              <div class="link-content">
+                <label for="">Outro Link</label>
+                <input type="text" class="input-link" placeholder="Outro tipo de link" [(ngModel)]="novoJogo.link.other">
+              </div>
             </div>
           </div>
 
           <div class="botoes-container">
             <button class="botao-cancelar" (click)="fecharModal()">Cancelar</button>
-            <button class="botao-adicionar" (click)="adicionarJogo()">Adicionar</button>
+            <div class="adicionar-container-botao">
+              <img src="assets/adicionar-icon.png" alt="">
+              <button class="botao-adicionar" (click)="adicionarJogo()">Enviar Jogo</button>
+            </div>
           </div>
         </div>
     </div>
-</main>
+</section>

@@ -1,12 +1,13 @@
 import { CommonModule } from '@angular/common';
-import { Component, inject, OnInit } from '@angular/core';
-import { RouterModule } from '@angular/router';
+import { Component, inject, OnInit, OnDestroy } from '@angular/core';
+import { Router, RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { GameDTO } from '../../rest/game/GameDTO';
 import { GameRest } from '../../rest/game/GameRest';
 import { Category } from '../../rest/category/Category';
 import { CategoryRest } from '../../rest/category/CategoryRest';
 import { GameRequest } from '../../rest/game/GameRequest';
+import { ScrollService } from '../../../services/scroll.service';
 
 @Component({
   selector: 'app-jogos',
@@ -15,13 +16,15 @@ import { GameRequest } from '../../rest/game/GameRequest';
   templateUrl: './jogos.component.html',
   styleUrl: './jogos.component.css'
 })
-export class JogosComponent {
+export class JogosComponent implements OnInit, OnDestroy {
   mostrarModal = false;
-  jogos: GameDTO[] = []
+  jogos: GameDTO[] = [];
   categorias: Category[] = [];
 
   private gameRest: GameRest = inject(GameRest);
   private categoryRest: CategoryRest = inject(CategoryRest);
+  private scrollService: ScrollService = inject(ScrollService);
+  private router: Router = inject(Router);
 
   novoJogo: GameRequest = {
     nome: '',
@@ -40,6 +43,18 @@ export class JogosComponent {
   ngOnInit() {
     this.carregarJogos();
     this.carregarCategorias();
+
+    const pos = this.scrollService.getPosition(this.router.url);
+    if (pos !== undefined) {
+      window.scrollTo({ top: pos, behavior: 'auto' });
+    } else {
+      window.scrollTo({ top: 0, behavior: 'auto' });
+    }
+  }
+
+  ngOnDestroy(): void {
+    this.scrollService.savePosition(this.router.url, window.scrollY);
+    document.body.style.overflow = 'auto';
   }
 
   carregarJogos() {
@@ -55,22 +70,22 @@ export class JogosComponent {
 
   adicionarJogo() {
     if (!this.novoJogo.nome || !this.novoJogo.descricao || !this.novoJogo.categoria || !this.novoJogo.imagem) {
-        alert('Erro: Por favor, preencha todos os campos obrigatórios.');
-        return;
+      alert('Erro: Por favor, preencha todos os campos obrigatórios.');
+      return;
     }
-    
+
     console.log('Objeto a ser enviado:', this.novoJogo);
 
     this.gameRest.saveGame(this.novoJogo).subscribe({
-        next: () => {
-            alert('Jogo adicionado com sucesso!');
-            this.carregarJogos();
-            this.fecharModal();
-        },
-        error: (error) => {
-            console.error('Erro ao adicionar o jogo:', error);
-            alert('Este jogo já existe tente outro nome.');
-        }
+      next: () => {
+        alert('Jogo adicionado com sucesso!');
+        this.carregarJogos();
+        this.fecharModal();
+      },
+      error: (error) => {
+        console.error('Erro ao adicionar o jogo:', error);
+        alert('Este jogo já existe, tente outro nome.');
+      }
     });
   }
 
@@ -87,10 +102,12 @@ export class JogosComponent {
 
   abrirModal() {
     this.mostrarModal = true;
+    document.body.style.overflow = 'hidden';
   }
 
   fecharModal() {
     this.mostrarModal = false;
+    document.body.style.overflow = 'auto';
   }
 
   onFileSelected() {
