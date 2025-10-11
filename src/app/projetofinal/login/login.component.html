@@ -1,25 +1,55 @@
-<main>
-    <div class="form">
-        <h2 class="login-title">Faça seu login</h2>
+<section>
+  <div class="voltar-container">
+    <a href="/boas-vindas" class="voltar-button">← Voltar</a>
+  </div>
 
-        <div class="user-container">
-            <label for="nome">Seu usuário</label>
-            <div class="input-user">
-                <img src="assets/user-icon.png" alt="Ícone de usuário">
-                <input type="text" id="nome" placeholder="Digite seu username" [(ngModel)]="username">
-            </div>
-        </div>
-
-        <div class="password-container">
-            <label for="senha">Sua senha</label>
-            <div class="input-password">
-                <img src="assets/padlock-icon.png" alt="Ícone de email">
-                <input type="password" id="senha" placeholder="Digite sua senha" [(ngModel)]="password">
-            </div>
-        </div>
-
-        <div class="button-container"><button type="submit" class="btn-cadastrar" (click)="signIn()">Acessar</button></div>
-
-        <p class="text-login">Não possui um cadastro?<a href="/cadastro" class="login-link">Faça um!</a></p>
+  <div class="login-container">
+    <div>
+      <h1 class="title">Fazer login</h1>
+      <p class="subtitle">Entre com suas credenciais para acessar sua conta</p>
     </div>
-</main>
+
+    <div class="form-container">
+
+      <div class="input-container-nome">
+        <label for="nome" class="label-usuario">Usuário</label>
+        <input
+          type="text"
+          id="nome"
+          placeholder="Digite seu usuário"
+          class="input-usuario"
+          [(ngModel)]="username"
+          name="username"
+        >
+        <p *ngIf="tentouEnviar && !username.trim()" class="erro-texto">
+          O nome de usuário deve ser preenchido.
+        </p>
+      </div>
+
+      <div class="input-container-senha">
+        <label for="senha" class="label-senha">Senha</label>
+        <input
+          type="password"
+          id="senha"
+          placeholder="••••••••"
+          class="input-senha"
+          [(ngModel)]="password"
+          name="password"
+        >
+        <p *ngIf="tentouEnviar && !password.trim()" class="erro-texto">
+          A senha deve ser preenchida.
+        </p>
+      </div>
+
+      <button class="botao-entrar" type="submit" (click)="signIn()">Entrar</button>
+    </div>
+
+    <div *ngIf="erroLogin" class="erro-texto" style="margin-top:8px; text-align:center;">
+      {{ erroLogin }}
+    </div>
+
+    <p class="nao-tem-conta-paragraph">
+      Não tem uma conta? <a href="/cadastro" class="navegar-conta-botao">Criar conta</a>
+    </p>
+  </div>
+</section>
