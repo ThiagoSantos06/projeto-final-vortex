@@ -1,0 +1,13 @@
+.body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-color: #121216;
+}
+
+main {
+  flex: 1; /* ocupa espaço entre header e footer */
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
