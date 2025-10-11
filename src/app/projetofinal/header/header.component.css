@@ -1,128 +1,70 @@
 header {
     width: 100%;
     height: 120px;
-    background-color: #1f1f1f;
+    background-color: #121216;
+    border-bottom: #3B3B3B 2px solid;
     display: flex;
     justify-content: center;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 100;
 }
 
 .header-container {
+    width: 80%;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    width: 60%;
-    height: 100%;
-    max-width: 1200px;
 }
 
-.logo-content {
-    display: flex;
-    align-items: center;
-}
-
-.logo-image {
-    width: 75px;
+.logo {
     object-fit: contain;
-}
-
-.pesquisar-container {
-    background-color: white;
-    width: 500px;
-    height: 40px;
-    display: flex;
-    align-items: center;
-    padding: 15px;
-    justify-content: space-between;
-    border-radius: 5px;
-}
-
-.input-pesquisar {
-    background-color: transparent;
-    border: none;
-    padding: 5px;
-    width: 100%;
-    outline: none;
-}
-
-.lupa-image {
+    width: 80px;
     cursor: pointer;
 }
 
-.content-logout {
+.search-container {
     display: flex;
     align-items: center;
-    height: 100%;
-    gap: 50px;
+    background-color: #1C1C21;
+    border: 2px solid #303030;
+    border-radius: 10px;
+    width: 50%;
 }
 
-.logout-container {
+.search-icon {
+    margin-right: 16px;
+    cursor: pointer;
+}
+
+.search-input {
+    background: transparent;
+    width: 100%;
+    border: none;
+    outline: none;
+    color: white;
+    padding: 16px;
+}
+
+.user-info {
     display: flex;
     align-items: center;
-    gap: 20px;
+    color: white;
+    gap: 16px;
 }
 
-.image-user {
-    width: 20px;
+.user-details {
+    display: flex;
+    flex-direction: column;
+}
+
+.user-icon {
     object-fit: contain;
+    width: 20px;
 }
 
-.logout-text, .saudacao-text {
-    margin: 0;
-    color: white;
-}
-
-.logout-text {
-    color:rgb(22, 162, 197) ;
-}
-
-
-
-
-
-
-.pesquisar-container {
-  position: relative;
-  width: 350px;
-}
-
-.input-pesquisar {
-  width: 100%;
-  padding: 8px 12px;
-  border-radius: 4px;
-}
-
-.nome-game {
-    color: white;
-    font-weight: bold;
-}
-
-.sugestoes {
-  position: absolute;
-  top: 100%;
-  left: 0;
-  width: 100%;
-  background-color: #1d292e;
-  z-index: 10;
-  max-height: 200px;
-  overflow-y: auto;
-  border-radius: 4px;
-}
-
-.sugestao {
-  display: flex;
-  align-items: center;
-  padding: 6px 10px;
-  cursor: pointer;
-}
-
-.sugestao:hover {
-    background-color: #353535;
-}
-
-.sugestao img {
-  width: 65px;
-  height: 40px;
-  margin-right: 10px;
-  object-fit: cover;
-  border-radius: 4px;
+.logout-link {
+    color: #16A2C5;
+    text-decoration: none;
 }
