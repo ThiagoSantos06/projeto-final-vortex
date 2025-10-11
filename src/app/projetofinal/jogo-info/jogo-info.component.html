@@ -1,4 +1,59 @@
-<div class="body" *ngIf="jogo">
+<app-header></app-header>
+<section>
+  <main>
+    <div class="voltar-container">
+      <a href="/home" class="voltar-botao">← Voltar</a>
+    </div>
+
+    <div class="container-jogo-info">
+      <img [src]="jogo?.imagem" alt="" class="imagem-jogo">
+
+      <div>
+        <h1 class="titulo-jogo">{{jogo?.nome}}</h1>
+        <p class="paragrafo-jogo">{{jogo?.descricao}}</p>
+      </div>
+    </div>
+
+    <div class="container-links">
+      <h2 class="titulo-links">Links rápidos</h2>
+
+      <div class="container-link-direcionar" (click)="abrirLink(jogo?.link?.youtube)" [class.link-inativo]="!jogo?.link?.youtube">
+        <div class="nome-link">
+          <img [src]="jogo?.link?.youtube ? 'assets/YoutubeLogo.png' : 'assets/YoutubeLogo-desativada.png'" alt="">
+          <p class="nome-link-direcionador" target="_blank" [class.sem-link]="!temLink()">Gameplay no Youtube</p>
+        </div>
+        <img src="assets/exportLogo.png" alt="" class="export-logo" [class.link-inativo]="!jogo?.link?.other">
+      </div>
+
+      <div class="container-link-direcionar" (click)="abrirLink(jogo?.link?.twitch)" [class.link-inativo]="!jogo?.link?.twitch">
+        <div class="nome-link">
+          <img [src]="jogo?.link?.twitch ? 'assets/twitchLogo.png' : 'assets/twitchLogo-desativada.png'" alt="">
+          <a class="nome-link-direcionador" target="_blank">Gameplay na Twitch</a>
+        </div>
+        <img src="assets/exportLogo.png" alt="" class="export-logo" [class.link-inativo]="!jogo?.link?.other">
+      </div>
+
+      <div class="container-link-direcionar" (click)="abrirLink(jogo?.link?.gameLink)" [class.link-inativo]="!jogo?.link?.gameLink">
+        <div class="nome-link">
+          <img [src]="jogo?.link?.gameLink ? 'assets/jogoLogo.png' : 'assets/jogoLogo-desativada.png'" alt="">
+          <a class="nome-link-direcionador" target="_blank">Jogo oficial</a>
+        </div>
+        <img src="assets/exportLogo.png" alt="" class="export-logo" [class.link-inativo]="!jogo?.link?.other">
+      </div>
+
+      <div class="container-link-direcionar" (click)="abrirLink(jogo?.link?.other)" [class.link-inativo]="!jogo?.link?.other">
+        <div class="nome-link">
+          <img [src]="jogo?.link?.other ? 'assets/outrosLogo.png' : 'assets/outrosLogo-desativada.png'" alt="">
+          <a class="nome-link-direcionador" target="_blank">Outros</a>
+        </div>
+        <img src="assets/exportLogo.png" alt="" class="export-logo" [class.link-inativo]="!jogo?.link?.other">
+      </div>
+    </div>
+  </main>
+</section>
+<app-footer></app-footer>
+
+<!-- <div class="body" *ngIf="jogo">
   <div class="page-wrapper">
     <app-header></app-header>
 
@@ -6,7 +61,6 @@
       <div class="main-content">
         <div class="jogo-infos">
 
-          <!-- Imagem e descrição -->
           <div class="info-container">
             <img [src]="jogo.imagem" [alt]="jogo.nome" class="imagem-jogo">
             <div>
@@ -15,7 +69,6 @@
             </div>
           </div>
 
-          <!-- Links -->
           <div class="links-container">
             <div *ngIf="jogo.link.youtube">
               <h3>Link do YouTube</h3>
@@ -47,7 +100,6 @@
               <p class="semConteudo">Sem conteúdo</p>
             </div>
 
-            <!-- Caso não haja nenhum link -->
             <div *ngIf="!jogo.link.youtube && !jogo.link.twitch && !jogo.link.gameLink && !jogo.link.other">
               <p class="semConteudo">Sem conteúdo</p>
             </div>
@@ -59,4 +111,4 @@
 
     <app-footer></app-footer>
   </div>
-</div>
+</div> -->

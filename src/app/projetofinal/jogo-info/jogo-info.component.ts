@@ -1,15 +1,15 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { HeaderComponent } from "../header/header.component";
-import { FooterComponent } from "../footer/footer.component";
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { GameRest } from '../../rest/game/GameRest';
 import { GameDTO } from '../../rest/game/GameDTO';
+import { HeaderComponent } from "../header/header.component";
+import { FooterComponent } from "../footer/footer.component";
 
 @Component({
   selector: 'app-jogo-info',
-  imports: [HeaderComponent, FooterComponent, FormsModule, CommonModule],
+  imports: [FormsModule, CommonModule, HeaderComponent, FooterComponent],
   templateUrl: './jogo-info.component.html',
   styleUrls: ['./jogo-info.component.css']
 })
@@ -32,5 +32,22 @@ export class JogoInfoComponent implements OnInit {
         }
       });
     }
+
+    window.scrollTo(0, 0);
+  }
+
+  abrirLink(url?: string) {
+      if (url) {
+        window.open(url, '_blank');
+    }
+  }
+
+  temLink(): boolean {
+    return !!(
+      this.jogo?.link?.youtube ||
+      this.jogo?.link?.twitch ||
+      this.jogo?.link?.gameLink ||
+      this.jogo?.link?.other
+    );
   }
 }
