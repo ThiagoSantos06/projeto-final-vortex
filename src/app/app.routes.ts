@@ -7,6 +7,7 @@ import { AuthGuard } from './auth.guard';
 import { JogoInfoComponent } from './projetofinal/jogo-info/jogo-info.component';
 import { BoasVindasComponent } from './projetofinal/boas-vindas/boas-vindas.component';
 import { SobreNosComponent } from './projetofinal/sobre-nos/sobre-nos.component';
+import { PlanosComponent } from './projetofinal/planos/planos.component';
 
 export const routes: Routes = [
     {
@@ -34,10 +35,14 @@ export const routes: Routes = [
     },
 
     {
+        path: 'planos', component: PlanosComponent, canActivate: [AuthGuard]
+    },
+
+    {
         path: 'jogo-info/:id/:nome', component: JogoInfoComponent, canActivate: [AuthGuard]
     },
 
     {
-        path: '**', redirectTo: ''  // rota coringa para evitar erros
+        path: '**', redirectTo: ''
     }
 ];

@@ -1,18 +1,18 @@
 import { CommonModule } from '@angular/common';
 import { Component, inject, OnInit, OnDestroy } from '@angular/core';
 import { Router, RouterModule } from '@angular/router';
-import { FormsModule } from '@angular/forms';
 import { GameDTO } from '../../rest/game/GameDTO';
 import { GameRest } from '../../rest/game/GameRest';
 import { Category } from '../../rest/category/Category';
 import { CategoryRest } from '../../rest/category/CategoryRest';
 import { GameRequest } from '../../rest/game/GameRequest';
 import { ScrollService } from '../../../services/scroll.service';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-jogos',
   standalone: true,
-  imports: [CommonModule, FormsModule, RouterModule],
+  imports: [CommonModule, RouterModule, FormsModule],
   templateUrl: './jogos.component.html',
   styleUrl: './jogos.component.css'
 })
@@ -124,5 +124,17 @@ export class JogosComponent implements OnInit, OnDestroy {
 
   formatNomeParaUrl(nome: string): string {
     return nome.toLowerCase().replace(/ /g, '-');
+  }
+
+  scrollToElement(elementId: string): void {
+    setTimeout(() => {
+      const element = document.getElementById(elementId);
+      if (element) {
+        element.scrollIntoView({ 
+          behavior: 'smooth', 
+          block: 'start'
+        });
+      }
+    }, 50);
   }
 }

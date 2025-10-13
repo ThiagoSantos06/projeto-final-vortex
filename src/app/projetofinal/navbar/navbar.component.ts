@@ -1,15 +1,12 @@
 import { Component } from '@angular/core';
-import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-footer',
+  selector: 'app-navbar',
   imports: [],
-  templateUrl: './footer.component.html',
-  styleUrl: './footer.component.css'
+  templateUrl: './navbar.component.html',
+  styleUrl: './navbar.component.css'
 })
-export class FooterComponent {
-  constructor (private router: Router) {}
-
+export class NavbarComponent {
   scrollToElement(elementId: string): void {
     setTimeout(() => {
       const element = document.getElementById(elementId);

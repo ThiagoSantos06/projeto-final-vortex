@@ -1,7 +1,7 @@
-<section>
+<section id="jogos">
   <div class="jogos-container">
     <div class="titulo-container">
-      <h1 class="title-jogos">Jogos</h1>
+      <h1 class="title-jogos" id="jogos">Jogos</h1>
       <div class="adicionar-jogo" (click)="abrirModal()"><img src="assets/adicionar-icon.png" alt="Botão adicionar jogos"></div>
     </div>
 
@@ -17,7 +17,7 @@
     </div>
 
     <div class="back-to-top-container">
-      <a href="#jogos" class="voltar-ao-topo-paragrafo">Voltar ao topo ↑</a>
+      <a (click)="scrollToElement('jogos')" class="voltar-ao-topo-paragrafo">Voltar ao topo ↑</a>
     </div>
   </div>
 
@@ -98,9 +98,9 @@
 
           <div class="botoes-container">
             <button class="botao-cancelar" (click)="fecharModal()">Cancelar</button>
-            <div class="adicionar-container-botao">
+            <div class="adicionar-container-botao" (click)="adicionarJogo()">
               <img src="assets/adicionar-icon.png" alt="">
-              <button class="botao-adicionar" (click)="adicionarJogo()">Enviar Jogo</button>
+              <button class="botao-adicionar">Enviar Jogo</button>
             </div>
           </div>
         </div>

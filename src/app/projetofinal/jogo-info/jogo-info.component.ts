@@ -5,16 +5,15 @@ import { CommonModule } from '@angular/common';
 import { GameRest } from '../../rest/game/GameRest';
 import { GameDTO } from '../../rest/game/GameDTO';
 import { HeaderComponent } from "../header/header.component";
-import { FooterComponent } from "../footer/footer.component";
+import { NavbarComponent } from "../navbar/navbar.component";
 
 @Component({
   selector: 'app-jogo-info',
-  imports: [FormsModule, CommonModule, HeaderComponent, FooterComponent],
+  imports: [FormsModule, CommonModule, HeaderComponent, NavbarComponent],
   templateUrl: './jogo-info.component.html',
   styleUrls: ['./jogo-info.component.css']
 })
 export class JogoInfoComponent implements OnInit {
-
   jogo?: GameDTO;
 
   constructor(private route: ActivatedRoute, private gameRest: GameRest) {}

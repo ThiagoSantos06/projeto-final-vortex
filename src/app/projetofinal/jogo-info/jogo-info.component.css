@@ -2,7 +2,7 @@ section {
     width: 100%;
     min-height: 100vh;
     display: flex;
-    background-color: #121216;
+    background: linear-gradient(225deg, #3b0146 0%, #121216 35%);
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
@@ -108,64 +108,17 @@ main {
   color: #888;
 }
 
-/* html, .body {
-    height: 100%;
-    margin: 0;
-    padding: 0;
-    color: white;
-}
-
-.body {
+footer {
     display: flex;
-    flex-direction: column;
-    min-height: 100vh;
-    background-color: #121212;
-}
-
-.imagem-jogo {
-    width: 300px;
-    height: auto;
-    border-radius: 10px;
-}
-
-.page-wrapper {
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
-}
-
-.main-container {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
+    justify-content: center;
     align-items: center;
-    box-sizing: border-box;
+    background-color: #121216;
+    border-top: 2px solid #303030;
+    height: 150px;
     width: 100%;
 }
 
-.main-content {
-    background-color: #191821;
-    width: 100%;
-    max-width: 1200px;
-    height: auto;
-    margin: 5rem;
-    border-radius: 10px;
-    padding: 50px;
-}
-
-.info-container {
-    display: flex;
-    gap: 20px;
-}
-
-.links-container {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    margin-top: 50px;
-}
-
-.semConteudo {
-    color: rgb(124, 124, 124);
+footer p {
+    color: #fff;
     margin: 0;
-} */
+}

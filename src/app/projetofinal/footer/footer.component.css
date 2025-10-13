@@ -1,49 +1,55 @@
 footer {
     display: flex;
+    align-items: center;
     justify-content: center;
-    width: 100%;
-    height: 300px;
-    background-color: #1f1f1f ;
-}
-
-footer p {
-    color: white;
-    margin: 0;
-}
-
-.footer-content {
-    display: flex;
+    background-color: #121216;
+    border-top: 2px solid #303030;
     flex-direction: column;
+    height: 300px;
+}
+
+.container-footer {
+    border-bottom: 2px solid #303030;
     justify-content: space-evenly;
-    width: 100%;
-    max-width: 1200px;
-}
-
-.links-title, .membros-title {
-    font-weight: bold;
-    font-size: 1.2rem;
-}
-
-.footer-infos-content {
     display: flex;
-    justify-content: space-around;
+    width: 80%;
 }
 
-.links-lista, .membros-lista {
+h2 {
+    color: #fff;
+    font-weight: bold;
+}
+
+ul {
+    padding-left: 0;
+    color: #fff;
+}
+
+.linksRapidos li {
     list-style: none;
-    padding: 0;
-    margin: 0;
-    color: white;
+    text-decoration: underline;
+    transition: 0.2s;
 }
 
-.links-lista a {
-    color: white;
+.membros li {
+    list-style: none;
 }
 
-.direitos-autorais {
-    text-align: center;
+a {
+    color: #fff;
+    transition: 0.2s;
+    cursor: pointer;
 }
 
-.turma {
-    text-align: center;
+.categorias, .jogos {
+    transition: 0.2s;
+}
+
+a:hover, .categorias:hover, .jogos:hover {
+    color: #C23FD9;
+}
+
+.copyright {
+    color: #fff;
+    margin-top: 2rem;
 }

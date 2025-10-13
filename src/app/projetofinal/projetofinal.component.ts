@@ -4,6 +4,7 @@ import { FooterComponent } from './footer/footer.component';
 import { HeaderComponent } from './header/header.component';
 import { JogosComponent } from './jogos/jogos.component';
 import { VortexGamesComponent } from "./vortex-games/vortex-games.component";
+import { NavbarComponent } from "./navbar/navbar.component";
 
 @Component({
   selector: 'app-projetofinal',
@@ -13,7 +14,8 @@ import { VortexGamesComponent } from "./vortex-games/vortex-games.component";
     VortexGamesComponent,
     CategoriasComponent,
     JogosComponent,
-    FooterComponent
+    FooterComponent,
+    NavbarComponent
 ],
   templateUrl: './projetofinal.component.html',
   styleUrl: './projetofinal.component.css'

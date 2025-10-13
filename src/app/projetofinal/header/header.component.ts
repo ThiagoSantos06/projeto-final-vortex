@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component, ElementRef, HostListener, ViewChild } from '@angular/core';
-import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-header',
@@ -15,8 +15,8 @@ export class HeaderComponent {
   filteredGames: any[] = [];
   showSuggestions: boolean = false; 
 
-  @ViewChild('searchInput') searchInput!: ElementRef<HTMLInputElement>; // Referência ao input
-  @ViewChild('suggestionsList') suggestionsList!: ElementRef<HTMLDivElement>; // Referência à lista de sugestões
+  @ViewChild('searchInput') searchInput!: ElementRef<HTMLInputElement>;
+  @ViewChild('suggestionsList') suggestionsList!: ElementRef<HTMLDivElement>;
 
   allGames = [
     { name: 'THE FINALS', image: 'assets/the-finals.png' },
@@ -39,10 +39,10 @@ export class HeaderComponent {
       this.filteredGames = this.allGames.filter(game =>
         game.name.toLowerCase().startsWith(texto)
       );
-      this.showSuggestions = true; // Exibe sugestões
+      this.showSuggestions = true;
     } else {
       this.filteredGames = [];
-      this.showSuggestions = false; // Esconde sugestões quando o campo estiver vazio
+      this.showSuggestions = false;
     }
   }
 
@@ -53,15 +53,14 @@ export class HeaderComponent {
         this.searchInput && !this.searchInput.nativeElement.contains(event.target as Node) &&
         this.suggestionsList && !this.suggestionsList.nativeElement.contains(event.target as Node)
       ) {
-        this.showSuggestions = false; // Fecha as sugestões
+        this.showSuggestions = false;
       }
   }
 
-  // Garante que as sugestões sejam abertas quando o campo de pesquisa recebe foco
   @HostListener('focusin', ['$event'])
   onFocusIn(event: FocusEvent) {
     if (event.target === this.searchInput.nativeElement) {
-      this.showSuggestions = true;  // Exibe sugestões quando o input recebe foco
+      this.showSuggestions = true;
     }
   }
 }

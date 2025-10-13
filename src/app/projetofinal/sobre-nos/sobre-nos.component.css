@@ -2,7 +2,7 @@ section {
     width: 100%;
     min-height: 100vh;
     display: flex;
-    background-color: #121216;
+    background: linear-gradient(135deg, #3b0146 0%, #121216 35%);
     flex-direction: column;
     justify-content: space-between;
     align-items: center;

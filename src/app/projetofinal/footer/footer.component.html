@@ -1,26 +1,25 @@
 <footer>
-  <div class="footer-content">
-    <div class="footer-infos-content">
-      <div class="links-rapidos-content">
-        <p class="links-title">Links Rápidos</p>
-        <ul class="links-lista">
-          <li><a href="#categorias">Categorias</a></li>
-          <li><a href="#recomendacoes">Recomendações</a></li>
-          <li><a href="#jogos">Jogos</a></li>
-        </ul>
-      </div>
-    
-      <div class="membros-content">
-        <p class="membros-title">Membros</p>
-        <ul class="membros-lista">
-          <li>João Paulo</li>
-          <li>Thiago Henrique</li>
-          <li>Kauan Silva</li>
-        </ul>
-      </div>
+  <div class="container-footer">
+    <div>
+      <h2>Links Rápidos</h2>
+      <ul class="linksRapidos">
+        <li><a (click)="scrollToElement('categorias')" class="categorias">Categorias</a></li>
+        <li><a (click)="scrollToElement('jogos')" class="jogos">Jogos</a></li>
+        <li><a href="/sobre-nos">Sobre Nós</a></li>
+        <li><a href="/planos">Planos</a></li>
+        <li><a href="/contato">Contato</a></li>
+      </ul>
     </div>
 
-    <p class="direitos-autorais">&copy; 2025 Projeto Final. Projeto desenvolvido como parte do trabalho escolar. Todos os direitos reservados.</p>
-    <p class="turma">Turma Info 151</p>
+    <div>
+      <h2>Membros do Projeto</h2>
+      <ul class="membros">
+        <li>Thiago Henrique</li>
+        <li>João Paulo</li>
+        <li>Kauan Silva</li>
+      </ul>
+    </div>
   </div>
+
+  <p class="copyright">© 2025 Projeto Final. Projeto desenvolvido como parte do trabalho escolar. Todos os direitos reservados.</p>
 </footer>

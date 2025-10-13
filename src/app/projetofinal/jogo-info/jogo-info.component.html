@@ -1,4 +1,8 @@
-<app-header></app-header>
+<header>
+  <app-header></app-header>
+  <app-navbar></app-navbar>
+</header>
+
 <section>
   <main>
     <div class="voltar-container">
@@ -51,64 +55,6 @@
     </div>
   </main>
 </section>
-<app-footer></app-footer>
-
-<!-- <div class="body" *ngIf="jogo">
-  <div class="page-wrapper">
-    <app-header></app-header>
-
-    <main class="main-container">
-      <div class="main-content">
-        <div class="jogo-infos">
-
-          <div class="info-container">
-            <img [src]="jogo.imagem" [alt]="jogo.nome" class="imagem-jogo">
-            <div>
-              <h2>{{ jogo.nome }}</h2>
-              <p>{{ jogo.descricao }}</p>
-            </div>
-          </div>
-
-          <div class="links-container">
-            <div *ngIf="jogo.link.youtube">
-              <h3>Link do YouTube</h3>
-              <a [href]="jogo.link.youtube" target="_blank">Link do Youtube</a>
-            </div>
-
-            <div *ngIf="!jogo.link.twitch">
-              <h3>Link da Twitch</h3>
-              <p class="semConteudo">Sem conteúdo</p>
-            </div>
-
-            <div *ngIf="jogo.link.twitch">
-              <h3>Link da Twitch</h3>
-              <a [href]="jogo.link.twitch" target="_blank">Link da Twitch</a>
-            </div>
-
-            <div *ngIf="jogo.link.gameLink">
-              <h3>Link do Jogo</h3>
-              <a [href]="jogo.link.gameLink" target="_blank">Link do jogo</a>
-            </div>
-
-            <div *ngIf="jogo.link.other">
-              <h3>Outros</h3>
-              <a [href]="jogo.link.other" target="_blank">Outros links</a>
-            </div>
-
-            <div *ngIf="!jogo.link.other">
-              <h3>Outros</h3>
-              <p class="semConteudo">Sem conteúdo</p>
-            </div>
-
-            <div *ngIf="!jogo.link.youtube && !jogo.link.twitch && !jogo.link.gameLink && !jogo.link.other">
-              <p class="semConteudo">Sem conteúdo</p>
-            </div>
-          </div>
-
-        </div>
-      </div>
-    </main>
-
-    <app-footer></app-footer>
-  </div>
-</div> -->
+<footer>
+        <p>© 2025 Projeto Final. Projeto desenvolvido como parte do trabalho escolar. Todos os direitos reservados.</p>
+</footer>

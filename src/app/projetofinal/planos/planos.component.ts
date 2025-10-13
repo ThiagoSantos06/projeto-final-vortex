@@ -3,11 +3,11 @@ import { HeaderComponent } from "../header/header.component";
 import { NavbarComponent } from "../navbar/navbar.component";
 
 @Component({
-  selector: 'app-sobre-nos',
+  selector: 'app-planos',
   imports: [HeaderComponent, NavbarComponent],
-  templateUrl: './sobre-nos.component.html',
-  styleUrl: './sobre-nos.component.css'
+  templateUrl: './planos.component.html',
+  styleUrl: './planos.component.css'
 })
-export class SobreNosComponent {
+export class PlanosComponent {
 
 }
