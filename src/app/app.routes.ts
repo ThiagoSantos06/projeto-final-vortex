@@ -8,6 +8,7 @@ import { JogoInfoComponent } from './projetofinal/jogo-info/jogo-info.component'
 import { BoasVindasComponent } from './projetofinal/boas-vindas/boas-vindas.component';
 import { SobreNosComponent } from './projetofinal/sobre-nos/sobre-nos.component';
 import { PlanosComponent } from './projetofinal/planos/planos.component';
+import { CategoriaFiltroComponent } from './projetofinal/categoria-filtro/categoria-filtro.component';
 
 export const routes: Routes = [
     {
@@ -40,6 +41,10 @@ export const routes: Routes = [
 
     {
         path: 'jogo-info/:id/:nome', component: JogoInfoComponent, canActivate: [AuthGuard]
+    },
+
+    {
+        path: 'categoria/:nome', component: CategoriaFiltroComponent, canActivate: [AuthGuard]
     },
 
     {

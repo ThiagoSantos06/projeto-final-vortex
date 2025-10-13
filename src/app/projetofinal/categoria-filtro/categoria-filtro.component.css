@@ -1,0 +1,136 @@
+section {
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    background: linear-gradient(225deg, #3b0146 0%, #121216 35%);
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+main {
+    width: 80%;
+    margin-top: 5rem;
+    margin-bottom: 5rem;
+    height: auto;
+}
+
+.voltar-botao {
+    padding: 1rem 2rem;
+    border-radius: 10px;
+    border: 2px solid #303030;
+    text-decoration: none;
+    color: #fff;
+    font-weight: bold;
+    display: inline-block;
+    transition: 0.2s;
+    margin-bottom: 2rem;
+}
+
+.voltar-botao:hover {
+    background-color: #C23FD9;
+}
+
+.nome-categoria-achado {
+    color: #C23FD9;
+    font-weight: bold;
+}
+
+.quantidade-achada {
+    color: #727272;
+    font-size: 1.3rem;
+    margin: 0;
+    margin-bottom: 2rem
+}
+
+.container-triste {
+    display: flex;
+    flex-direction: column;
+    justify-content: baseline;
+    align-items: center;
+    gap: 16px;
+    margin-top: 4rem;
+}
+
+
+.imagem-triste {
+    width: 300px;
+    object-fit: contain;
+}
+
+.pergunta1, .pergunta2 {
+    color: #727272;
+    font-weight: bold;
+    margin: 0;
+}
+
+.pergunta1 {
+    margin-top: 1rem;
+}
+
+.jogo-card {
+    margin-top: 1rem;
+    display: flex;
+    background-color: #1C1C21;
+    padding: 1rem;
+    border-radius: 10px;
+    border: 2px solid #303030;
+    gap: 1rem;
+    transition: 0.2s;
+    color: #fff;
+    cursor: pointer;
+}
+
+.jogo-card:hover {
+    border: 2px solid #C23FD9;
+    transform: scale(1.003);
+    color: #C23FD9;
+}
+
+.imagem-jogo {
+    width: 150px;
+    object-fit: contain;
+    border-radius: 10px;
+}
+
+.container-jogo-nome {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.jogo-nome {
+    font-weight: bold;
+    transition: 0.2s;
+    margin: 0;
+}
+
+.categoria-jogo {
+    margin: 0;
+    background-color: #404040;
+    padding: 1px 8px;
+    border-radius: 100px;
+    font-weight: bold;
+    color: white;
+}
+
+.jogo-descricao {
+    color: #ccc;
+    margin: 0;
+    margin-top: 8px;
+}
+
+footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #121216;
+    border-top: 2px solid #303030;
+    height: 150px;
+    width: 100%;
+}
+
+footer p {
+    color: #fff;
+    margin: 0;
+}

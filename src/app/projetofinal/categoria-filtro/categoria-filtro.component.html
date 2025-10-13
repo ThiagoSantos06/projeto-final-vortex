@@ -1,0 +1,42 @@
+<div>
+    <app-header></app-header>
+    <app-navbar></app-navbar>
+</div>
+<section>
+    <main>
+        <a href="/home" class="voltar-botao">← Voltar</a>
+
+        <div *ngIf="jogos.length === 0">
+            <h1 class="nome-categoria-achado">{{getNomeFormatado()}}</h1>
+            <p class="quantidade-achada">Nenhum jogo encontrado na categoria "{{ getNomeFormatado() }}".</p>
+            
+            <div class="container-triste">
+                <img src="assets/carinhaTriste.png" alt="" class="imagem-triste" draggable="false">
+                <p class="pergunta1">Nenhum jogo encontrado nesta categoria.</p>
+                <p class="pergunta2">Que tal ser o primeiro a cadastrar um jogo nesta categoria?</p>
+            </div>
+        </div>
+
+        <div *ngIf="jogos.length > 0">
+            <h1 class="nome-categoria-achado">{{getNomeFormatado()}}</h1>
+            <p class="quantidade-achada">{{ jogos.length }} jogo(s) encontrado(s)</p>
+        </div>
+
+        <ng-container *ngIf="jogos.length > 0">
+            <div *ngFor="let jogo of jogos" class="jogo-card" 
+                [routerLink]="['/jogo-info', jogo.id, formatNomeParaUrl(jogo.nome)]">
+                <img [src]="jogo.imagem" alt="" class="imagem-jogo">
+                <div class="jogo-info">
+                <div class="container-jogo-nome">
+                    <h3 class="jogo-nome">{{jogo.nome}}</h3>
+                    <p class="categoria-jogo">{{jogo.categoria}}</p>
+                </div>
+                <p class="jogo-descricao">{{jogo.descricao}}</p>
+                </div>
+            </div>
+        </ng-container>
+    </main>
+</section>
+<footer>
+        <p>© 2025 Projeto Final. Projeto desenvolvido como parte do trabalho escolar. Todos os direitos reservados.</p>
+</footer>
