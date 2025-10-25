@@ -14,6 +14,10 @@
         </div>
         <p class="jogo-descricao">{{jogo.descricao}}</p>
       </div>
+      
+      <div *ngIf="isAdmin" class="excluir-container">
+        <img (click)="excluirJogo(jogo.id, $event)" src="assets/lixeira.png" alt="" class="botao-excluir">
+      </div>
     </div>
 
     <div class="back-to-top-container">

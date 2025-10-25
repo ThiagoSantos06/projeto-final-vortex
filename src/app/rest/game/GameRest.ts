@@ -25,4 +25,8 @@ export class GameRest {
     getGamesByCategory(categoria: string) {
         return this.http.get<GameDTO[]>(`${this.url}/categoria/${categoria}`);
     }
+
+    deleteGame(id: number) {
+        return this.http.delete(`${this.url}/${id}`);
+    }
 }

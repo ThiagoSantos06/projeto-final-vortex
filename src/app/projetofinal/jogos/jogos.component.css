@@ -36,6 +36,7 @@ section {
 }
 
 .jogo-card {
+    position: relative;
     margin-top: 1rem;
     display: flex;
     background-color: #1C1C21;
@@ -46,6 +47,23 @@ section {
     transition: 0.2s;
     color: #fff;
     cursor: pointer;
+}
+
+.excluir-container {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+}
+
+.botao-excluir {
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.botao-excluir:hover {
+    transform: scale(1.1);
 }
 
 .jogo-card:hover {
