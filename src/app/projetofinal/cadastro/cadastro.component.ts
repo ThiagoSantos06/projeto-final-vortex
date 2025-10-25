@@ -56,7 +56,7 @@ export class CadastroComponent {
     this.userRest.signUp(form).subscribe({
       next: () => {
         localStorage.setItem("user", this.name)
-        this.router.navigate(["/escolhas-recomendacoes"])
+        this.router.navigate(["/login"])
       },
       error: (response) => {
         this.erroCadastro = "Este usuário já existe. Tente outro.";
