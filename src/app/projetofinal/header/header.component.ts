@@ -1,7 +1,10 @@
 import { CommonModule } from '@angular/common';
-import { Component, ElementRef, HostListener, ViewChild } from '@angular/core';
+import { Component, HostListener } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
+import { GameRest } from '../../rest/game/GameRest';
+import { GameDTO } from '../../rest/game/GameDTO';
+import { AuthService } from '../../rest/auth/auth.service';
 
 @Component({
   selector: 'app-header',
@@ -10,57 +13,56 @@ import { FormsModule } from '@angular/forms';
   styleUrl: './header.component.css'
 })
 export class HeaderComponent {
-  name = localStorage.getItem("user")
-  searchText: string = '';
-  filteredGames: any[] = [];
-  showSuggestions: boolean = false; 
+  name = localStorage.getItem("user");
+  searchTerm = '';
+  searchResults: GameDTO[] = [];
+  mostrarResultados = false;
 
-  @ViewChild('searchInput') searchInput!: ElementRef<HTMLInputElement>;
-  @ViewChild('suggestionsList') suggestionsList!: ElementRef<HTMLDivElement>;
+  constructor(private gameRest: GameRest, private authService: AuthService) {}
 
-  allGames = [
-    { name: 'THE FINALS', image: 'assets/the-finals.png' },
-    { name: 'THE Origen', image: 'assets/the-finals.png' },
-    { name: 'THE Muscle', image: 'assets/the-finals.png' },
-    { name: 'THE OOF', image: 'assets/the-finals.png' },
-    { name: 'THE MEGA', image: 'assets/the-finals.png' },
-    { name: 'Marvel Rivals', image: 'assets/marvel-rivals.png' },
-    { name: 'Minecraft', image: 'assets/marvel-rivals.png' },
-    { name: 'Valorant', image: 'assets/valorant.png' },
-    { name: 'Pubg Battlegrounds', image: 'assets/pubg.png' },
-    { name: 'Red Dead Redemption 2', image: 'assets/reddeadredemption2.png' },
-    { name: 'CS:GO', image: 'assets/csgo.png' },
-  ];
+  buscarJogos() {
+    const termo = this.searchTerm.trim().toLowerCase();
 
-  filtrarJogos() {
-    const texto = this.searchText.toLowerCase();
-    
-    if (this.searchText.length > 0) {
-      this.filteredGames = this.allGames.filter(game =>
-        game.name.toLowerCase().startsWith(texto)
-      );
-      this.showSuggestions = true;
-    } else {
-      this.filteredGames = [];
-      this.showSuggestions = false;
+    if (termo.length === 0) {
+      this.searchResults = [];
+      this.mostrarResultados = false;
+      return;
+    }
+
+    this.gameRest.getAllGames().subscribe((jogos) => {
+      // 🔹 Filtra apenas jogos que começam com o termo
+      this.searchResults = jogos.filter(j => j.nome.toLowerCase().startsWith(termo));
+      this.mostrarResultados = true; // sempre mostra, mesmo que 0 resultados
+    });
+  }
+
+  abrirResultados() {
+    if (this.searchResults.length > 0 || this.searchTerm.trim() !== '') {
+      this.mostrarResultados = true;
     }
   }
 
-
-  @HostListener('document:click', ['$event'])
-    onClickOutside(event: MouseEvent) {
-      if (
-        this.searchInput && !this.searchInput.nativeElement.contains(event.target as Node) &&
-        this.suggestionsList && !this.suggestionsList.nativeElement.contains(event.target as Node)
-      ) {
-        this.showSuggestions = false;
-      }
+  fecharDropdown() {
+    this.mostrarResultados = false;
+    document.body.classList.remove('no-scroll');
   }
 
-  @HostListener('focusin', ['$event'])
-  onFocusIn(event: FocusEvent) {
-    if (event.target === this.searchInput.nativeElement) {
-      this.showSuggestions = true;
-    }
+  limparPesquisa() {
+    this.searchTerm = '';
+    this.searchResults = [];
+    this.mostrarResultados = false;
+  }
+
+  @HostListener('document:click')
+  clickFora() {
+    this.mostrarResultados = false;
+  }
+
+  formatNomeParaUrl(nome: string) {
+    return nome.toLowerCase().replace(/\s+/g, '-');
+  }
+
+  logout() {
+    this.authService.logout();
   }
 }

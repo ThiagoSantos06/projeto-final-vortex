@@ -22,17 +22,13 @@ header {
 }
 
 .search-container {
+    position: relative;
     display: flex;
     align-items: center;
     background-color: #1C1C21;
     border: 2px solid #303030;
     border-radius: 10px;
     width: 50%;
-}
-
-.search-icon {
-    margin-right: 16px;
-    cursor: pointer;
 }
 
 .search-input {
@@ -42,6 +38,87 @@ header {
     outline: none;
     color: white;
     padding: 16px;
+}
+
+.search-icon {
+    margin-right: 16px;
+    cursor: pointer;
+}
+
+.search-results {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background-color: #1C1C21;
+    border: 1px solid #303030;
+    border-radius: 0 0 10px 10px;
+    max-height: 250px;
+    overflow-y: auto;
+    z-index: 100;
+    scrollbar-width: thin;
+    scrollbar-color: #C23FD9 #1C1C21;
+}
+
+.search-results::-webkit-scrollbar {
+    width: 8px;
+}
+
+.search-results::-webkit-scrollbar-thumb {
+    background-color: #C23FD9;
+    border-radius: 10px;
+}
+
+.search-results::-webkit-scrollbar-thumb:hover {
+    background-color: #b238c4;
+}
+
+.search-results::-webkit-scrollbar-track {
+    background-color: #1C1C21;
+}
+
+.search-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px;
+    cursor: pointer;
+    color: white;
+    text-decoration: none;
+    border-bottom: 1px solid #2A2A2F;
+}
+
+.search-item:hover {
+    background-color: #2A2A2F;
+}
+
+.result-img {
+    width: 40px;
+    height: 40px;
+    object-fit: cover;
+    border-radius: 5px;
+}
+
+.search-text {
+    display: flex;
+    flex-direction: column;
+}
+
+.jogo-nome {
+    font-weight: 600;
+}
+
+.jogo-categoria {
+    font-size: 0.85rem;
+    color: #fff;
+}
+
+.no-results {
+    padding: 10px;
+    color: #B9B9B9;
+    text-align: center;
+    font-style: italic;
+    background-color: #1C1C21;
 }
 
 .user-info {
@@ -64,4 +141,5 @@ header {
 .logout-link {
     color: #16A2C5;
     text-decoration: none;
+    cursor: pointer;
 }

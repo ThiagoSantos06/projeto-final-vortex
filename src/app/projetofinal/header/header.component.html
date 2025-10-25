@@ -1,18 +1,47 @@
 <header>
   <div class="header-container">
     <img routerLink="/home" src="assets/logo.png" alt="" class="logo">
-    <div class="search-container">
-      <input type="text" placeholder="Pesquise um jogo" class="search-input">
+
+  <div class="search-container" (click)="$event.stopPropagation()">
+      <input
+        type="text"
+        placeholder="Pesquise um jogo"
+        class="search-input"
+        [(ngModel)]="searchTerm"
+        (input)="buscarJogos()"
+        (focus)="abrirResultados()"
+      />
       <img src="assets/lupa.png" alt="" class="search-icon">
+
+      <div
+        *ngIf="mostrarResultados"
+        class="search-results"
+      >
+        <div
+          class="search-item"
+          *ngFor="let jogo of searchResults"
+          [routerLink]="['/jogo-info', jogo.id, formatNomeParaUrl(jogo.nome)]"
+          (click)="limparPesquisa()"
+        >
+          <img [src]="jogo.imagem" alt="{{ jogo.nome }}" class="result-img">
+          <div class="search-text">
+            <span class="jogo-nome">{{ jogo.nome }}</span>
+            <span class="jogo-categoria">{{ jogo.categoria }}</span>
+          </div>
+        </div>
+
+        <div *ngIf="searchResults.length === 0" class="no-results">
+          Nenhum jogo encontrado
+        </div>
+      </div>
     </div>
 
     <div class="user-info">
       <img src="assets/user-icon-logout.png" alt="" class="user-icon">
       <div class="user-details">
         <span>Olá, {{name}}</span>
-        <a href="" class="logout-link">Fazer logout</a>
+        <a (click)="logout()" class="logout-link">Fazer logout</a>
       </div>
     </div>
   </div>
 </header>
-  
