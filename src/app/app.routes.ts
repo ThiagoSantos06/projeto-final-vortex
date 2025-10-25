@@ -9,6 +9,7 @@ import { BoasVindasComponent } from './projetofinal/boas-vindas/boas-vindas.comp
 import { SobreNosComponent } from './projetofinal/sobre-nos/sobre-nos.component';
 import { PlanosComponent } from './projetofinal/planos/planos.component';
 import { CategoriaFiltroComponent } from './projetofinal/categoria-filtro/categoria-filtro.component';
+import { ContatoComponent } from './projetofinal/contato/contato.component';
 
 export const routes: Routes = [
     {
@@ -37,6 +38,10 @@ export const routes: Routes = [
 
     {
         path: 'planos', component: PlanosComponent, canActivate: [AuthGuard]
+    },
+
+    {
+        path: 'contato', component: ContatoComponent, canActivate: [AuthGuard]
     },
 
     {

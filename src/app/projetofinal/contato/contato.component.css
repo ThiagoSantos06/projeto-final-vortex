@@ -1,0 +1,121 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+section {
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    background: linear-gradient(135deg, #3b0146 0%, #121216 35%);
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 80%;
+    margin-top: 5rem;
+}
+
+.container-titulo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.titulo-contato {
+    font-weight: bold;
+    font-size: 3rem;
+    color: #C23FD9;
+}
+
+.paragrafo-contato {
+    font-size: 1.5rem;
+    color: #B9B9B9;
+    margin-top: 1rem;
+    margin-bottom: 3rem;
+}
+
+.formulario-container {
+    background-color: #1C1C21;
+    border-radius: 20px;
+    border: 1px solid #303030;
+    padding: 2rem;
+    width: 55%;
+    margin-bottom: 5rem;
+}
+
+.form-contato {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.container-nome, .container-email, .container-select, .container-textarea {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.label-nome, .label-email, .label-select, .label-textarea {
+    color: #B9B9B9;
+    font-weight: bold;
+}
+
+.input-nome, .input-email, select {
+    border-radius: 10px;
+    border: 1px solid #9F07BC;
+    outline: none;
+    padding: 1rem;
+    color: #fff;
+    background-color: #121216;
+    transition: 0.2s;
+}
+
+.input-nome:focus, .input-email:focus, select:focus, .textarea:focus {
+    border: 1px solid #C23FD9;
+}
+
+.textarea {
+    background-color: #17171B;
+    border: 1px solid #9F07BC;
+    outline: none;
+    padding: 1rem;
+    border-radius: 10px;
+    color: #fff;
+    height: 150px;
+    transition: 0.2s;
+}
+
+.botao-enviar {
+    background-color: #C23FD9;
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    padding: 1rem;
+    font-weight: bold;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: 0.2s;
+    margin-top: 1rem;
+}
+
+footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #121216;
+    border-top: 2px solid #303030;
+    height: 150px;
+    width: 100%;
+}
+
+footer p {
+    color: #fff;
+    margin: 0;
+}
