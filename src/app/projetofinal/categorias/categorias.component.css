@@ -54,7 +54,6 @@ section {
 
 .categoria-card:hover {
     background-color: #83029c;
-    transform: scale(1.05);
 }
 
 .categoria-name {

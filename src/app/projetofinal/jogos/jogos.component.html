@@ -12,7 +12,9 @@
           <h3 class="jogo-nome">{{jogo.nome}}</h3>
           <p class="categoria-jogo">{{jogo.categoria}}</p>
         </div>
-        <p class="jogo-descricao">{{jogo.descricao}}</p>
+        <p class="jogo-descricao">
+          {{ jogo.descricao.length > 550 ? (jogo.descricao | slice:0:550) + '...' : jogo.descricao }}
+        </p>
       </div>
       
       <div *ngIf="isAdmin" class="excluir-container">
