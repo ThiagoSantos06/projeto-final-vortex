@@ -32,6 +32,8 @@ section {
     border: 1px solid #9F07BC;
     border-radius: 16px;
     padding: 2rem;
+    max-width: 400px;
+    width: 90%;
 }
 
 .title {
@@ -107,6 +109,53 @@ section {
 }
 
 .erro-texto {
-  color: #ff4d4d; /* vermelho */
-  font-size: 0.9rem;
+    color: #ff4d4d;
+    font-size: 0.9rem;
+}
+
+@media (max-width: 600px) {
+    section {
+        height: auto; 
+        min-height: 100vh;
+        padding: 20px 0;
+    }
+
+    .voltar-container {
+        width: 90%; 
+        max-width: 400px;
+        padding-left: 0;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .login-container {
+        padding: 1.5rem 1rem;
+        width: 90%;
+    }
+
+    .title {
+        font-size: 1.5rem; 
+    }
+
+    .subtitle {
+        font-size: 0.9rem;
+    }
+
+    .botao-entrar {
+        font-size: 1rem;
+    }
+
+    .nao-tem-conta-paragraph {
+        font-size: 0.9rem;
+    }
+}
+
+@media (min-width: 601px) and (max-width: 1024px) {
+    .voltar-container {
+        width: 400px;
+    }
+    
+    .login-container {
+        max-width: 400px;
+    }
 }
