@@ -34,3 +34,16 @@ a {
 a:hover {
     background-color: #C23FD9;
 }
+
+@media screen and (max-width: 820px) {
+    nav {
+        justify-content: center;
+        width: 90%;
+    }
+
+    ul {
+        width: 100%;
+        text-wrap: nowrap;
+        justify-content: center;
+    }
+}
