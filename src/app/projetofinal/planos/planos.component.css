@@ -17,12 +17,14 @@ section {
 main {
     width: 80%;
     margin-top: 5rem;
+    margin-bottom: 5rem;
 }
 
 .container-titulo {
     display: flex;
     flex-direction: column;
     align-items: center;
+    text-align: center;
 }
 
 .titulo-plano {
@@ -36,14 +38,15 @@ main {
     color: #B9B9B9;
     margin-top: 1rem;
     margin-bottom: 4rem;
+    max-width: 600px;
 }
 
 .container-planos {
     display: flex;
     justify-content: space-between;
+    gap: 20px;
+    flex-wrap: nowrap;
 }
-
-/* Plano 1 */
 
 .plano1, .plano2, .plano3 {
     display: flex;
@@ -52,9 +55,12 @@ main {
     border: 2px solid #303030;
     border-radius: 20px;
     padding: 24px;
-    width: 420px;
-    height: 590px;
+    flex: 1 1 30%;
+    max-width: 420px;
     transition: 0.2s;
+    gap: 16px;
+    min-width: 0;
+    box-sizing: border-box; 
 }
 
 .plano1:hover {
@@ -104,6 +110,7 @@ main {
     display: flex;
     flex-direction: column;
     gap: 24px;
+    margin-bottom: 1.5rem; 
 }
 
 .informacao-plano1, .informacao-plano2, .informacao-plano3 {
@@ -119,6 +126,7 @@ main {
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-shrink: 0;
 }
 
 .informacao-plano1 p, .informacao-plano2 p, .informacao-plano3 p {
@@ -137,6 +145,7 @@ main {
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-shrink: 0;
 }
 
 .botao-atual-plano1 {
@@ -149,6 +158,7 @@ main {
     padding: 16px;
     cursor: pointer;
     transition: 0.2s;
+    width: 100%;
 }
 
 .botao-atual-plano1:hover {
@@ -162,8 +172,6 @@ main {
     font-weight: bold;
     color: white;
 }
-
-/* Plano 2 */
 
 .plano2:hover {
     box-shadow: 0 0 25px 0.5px #90419e85;
@@ -213,12 +221,12 @@ main {
     align-items: center;
 }
 
-.porcentagem p, .preco-abaixo-plano3 p {
+.porcentagem p {
     color: #FF4B4B;
 }
 
 .descricao-plano2, .descricao-plano3 {
-    width: 350px;
+    width: 100%;
     color: #B9B9B9;
     margin-bottom: 16px;
 }
@@ -232,6 +240,7 @@ main {
     padding: 16px;
     cursor: pointer;
     transition: 0.2s;
+    width: 100%;
 }
 
 .botao-assinar-plano2:hover {
@@ -246,8 +255,6 @@ main {
     color: white;
 }
 
-/* Plano 3 */
-
 .plano3 {
     border: 2px solid #C23FD9;
     box-shadow: 0 0 25px 0.5px #c23fd985;
@@ -261,17 +268,22 @@ main {
     display: flex;
     align-items: center;
     gap: 8px;
+    flex-wrap: wrap;
+    max-width: 100%;
 }
 
 .nome-plano3 h2 {
     color: #fff;
     font-weight: bold;
+    flex-grow: 1; 
+    min-width: 0;
 }
 
 .container-pupular {
     background-color: #C23FD9;
     border-radius: 100px;
     width: min-content;
+    flex-shrink: 0; 
 }
 
 .popular {
@@ -288,6 +300,7 @@ main {
     padding: 16px;
     cursor: pointer;
     transition: 0.2s;
+    width: 100%;
 }
 
 .botao-assinar-plano3:hover {
@@ -306,8 +319,9 @@ main {
     display: flex;
     justify-content: center;
     color: #B9B9B9;
-    margin-top: 2.5rem;
+    margin-top: 5rem; 
     font-weight: bold;
+    text-align: center;
 }
 
 .contato {
@@ -321,11 +335,69 @@ footer {
     align-items: center;
     background-color: #121216;
     border-top: 2px solid #303030;
-    height: 150px;
+    padding: 2rem 10px;
     width: 100%;
 }
 
 footer p {
     color: #fff;
     margin: 0;
+    text-align: center;
+    max-width: 90%;
+}
+
+@media screen and (max-width: 1300px) {
+    .container-planos {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 30px;
+    }
+
+    .plano1, .plano2, .plano3 {
+        width: 100%;
+        flex: 1 1 100%;
+        height: auto; 
+        max-width: 450px;
+        gap: 20px; 
+    }
+    
+    .container-informacoes-plano1, .container-informacoes-plano2, .container-informacoes-plano3 {
+        margin-bottom: 2rem; 
+    }
+    
+    main {
+        width: 90%;
+        margin-bottom: 3rem;
+    }
+    
+    .copyright {
+        margin-top: 3rem;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .titulo-plano {
+        font-size: 2.5rem;
+    }
+
+    .paragrafo-plano {
+        font-size: 1.2rem;
+    }
+    
+    .plano1, .plano2, .plano3 {
+        padding: 20px;
+    }
+    
+    .preco-plano2, .preco-plano3 {
+        font-size: 32px;
+    }
+    
+    .copyright {
+        font-size: 0.9rem;
+    }
+    
+    footer p {
+        max-width: 95%;
+        font-size: 0.8rem;
+    }
 }
