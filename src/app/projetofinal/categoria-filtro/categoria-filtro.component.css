@@ -52,7 +52,6 @@ main {
     margin-top: 4rem;
 }
 
-
 .imagem-triste {
     width: 300px;
     object-fit: contain;
@@ -91,6 +90,7 @@ main {
     width: 150px;
     object-fit: contain;
     border-radius: 10px;
+    flex-shrink: 0;
 }
 
 .container-jogo-nome {
@@ -120,17 +120,87 @@ main {
     margin-top: 8px;
 }
 
+/* FOOTER ATUALIZADO (Igual ao de Planos) */
 footer {
     display: flex;
     justify-content: center;
     align-items: center;
     background-color: #121216;
     border-top: 2px solid #303030;
-    height: 150px;
+    padding: 2rem 10px; /* Usa padding em vez de altura fixa */
     width: 100%;
 }
 
 footer p {
     color: #fff;
     margin: 0;
+    text-align: center;
+    max-width: 90%; /* Limita a largura do texto para melhor visualização */
+}
+/* FIM DO FOOTER ATUALIZADO */
+
+/* Responsividade */
+@media screen and (max-width: 900px) {
+    main {
+        width: 90%;
+    }
+}
+
+@media screen and (max-width: 650px) {
+    main {
+        width: 95%;
+        margin-top: 3rem;
+        margin-bottom: 3rem;
+    }
+    
+    .nome-categoria-achado {
+        font-size: 2rem;
+    }
+    
+    .quantidade-achada {
+        font-size: 1rem;
+    }
+    
+    .imagem-triste {
+        width: 200px;
+    }
+    
+    .pergunta1, .pergunta2 {
+        font-size: 0.9rem;
+        text-align: center;
+    }
+
+    .jogo-card {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    .imagem-jogo {
+        width: 100%;
+        height: auto;
+    }
+    
+    .jogo-info {
+        padding-top: 0.5rem;
+    }
+
+    .container-jogo-nome {
+        flex-wrap: wrap;
+    }
+    
+    .jogo-nome {
+        font-size: 1.1rem;
+    }
+    
+    .jogo-descricao {
+        font-size: 0.9rem;
+    }
+
+    footer {
+        height: auto;
+        padding: 1.5rem 10px;
+    }
+    footer p {
+        font-size: 0.8rem;
+    }
 }

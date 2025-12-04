@@ -21,25 +21,24 @@ section {
     margin-top: 1rem;
     display: flex;
     gap: 2rem;
-    overflow-x: auto;      /* ativa rolagem horizontal */
-    overflow-y: hidden;    /* evita rolagem vertical */
-    white-space: nowrap;   /* mantém os itens na mesma linha */
-    padding-bottom: 1rem;  /* espaço para rolagem caso queira */
-    scroll-behavior: smooth; /* rolagem suave */
+    overflow-x: auto;
+    overflow-y: hidden;
+    white-space: nowrap;
+    padding-bottom: 1rem; 
+    scroll-behavior: smooth;
 }
 
-/* opcional: esconder a barra de rolagem no Chrome, Edge e Safari */
 .categorias-grid::-webkit-scrollbar {
-    height: 8px; /* altura da barra horizontal */
+    height: 8px;
 }
 
 .categorias-grid::-webkit-scrollbar-thumb {
-    background-color: #C23FD9; /* cor da barra */
+    background-color: #C23FD9;
     border-radius: 10px;
 }
 
 .categorias-grid::-webkit-scrollbar-track {
-    background: transparent; /* fundo da barra */
+    background: transparent;
 }
 
 .categoria-card {
@@ -59,4 +58,18 @@ section {
 .categoria-name {
     margin: 0;
     color: #fff;
+}
+
+@media screen and (max-width: 500px) {
+    .container-categorias {
+        width: 90%;
+    }
+
+    .categoria-card {
+        padding: 1rem 2rem;
+    }
+
+    .categorias-grid {
+        gap: 1rem;
+    }
 }

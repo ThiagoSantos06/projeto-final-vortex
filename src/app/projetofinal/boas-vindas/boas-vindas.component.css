@@ -3,7 +3,7 @@ section {
     background-color: #121418;
     display: flex;
     align-items: center;
-    flex-direction:  column;
+    flex-direction: column;
     justify-content: space-evenly;
 }
 
@@ -75,6 +75,7 @@ section {
     transition: 0.2s;
     display: flex;
     align-items: center;
+    white-space: nowrap;
 }
 
 .button-login:hover {
@@ -90,9 +91,79 @@ section {
     color: white;
     font-weight: bold;
     transition: 0.2s;
+    white-space: nowrap;
 }
 
 .button-cadastro:hover {
     border: 2px solid #83029c;
     transform: scale(1.05);
+}
+
+@media (max-width: 600px) {
+    section {
+        justify-content: space-around;
+        padding: 20px 10px;
+    }
+
+    .title {
+        font-size: 2rem; 
+    }
+
+    .subtitle {
+        font-size: 1.2rem;
+        width: 90%; 
+    }
+
+    .logo {
+        width: 160px;
+    }
+
+    .fundo-roxo-logo {
+        width: 280px;
+        height: 280px;
+        filter: blur(30px); 
+    }
+
+    .paragraph {
+        font-size: 1rem;
+    }
+
+    .botoes-container {
+        flex-direction: row; 
+        gap: 10px;
+        flex-wrap: nowrap;
+    }
+    
+    .button-login, .button-cadastro {
+        padding: 12px 18px;
+        font-size: 0.9rem;
+    }
+
+    .button-login, .button-cadastro {
+        white-space: nowrap; 
+    }
+}
+
+@media (min-width: 601px) and (max-width: 1024px) {
+    .title {
+        font-size: 3.2rem; 
+    }
+
+    .subtitle {
+        width: 500px; 
+    }
+
+    .logo {
+        width: 220px;
+    }
+
+    .fundo-roxo-logo {
+        width: 400px;
+        height: 400px;
+        filter: blur(40px);
+    }
+    
+    .botoes-container {
+        gap: 30px; 
+    }
 }
