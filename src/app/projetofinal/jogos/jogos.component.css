@@ -47,6 +47,7 @@ section {
     transition: 0.2s;
     color: #fff;
     cursor: pointer;
+    text-decoration: none;
 }
 
 .excluir-container {
@@ -74,8 +75,13 @@ section {
 
 .imagem-jogo {
     width: 150px;
-    object-fit: contain;
+    height: 100px;
+    object-fit: cover;
     border-radius: 10px;
+}
+
+.jogo-info {
+    flex-grow: 1; 
 }
 
 .container-jogo-nome {
@@ -88,6 +94,7 @@ section {
     font-weight: bold;
     transition: 0.2s;
     margin: 0;
+    word-break: break-word;
 }
 
 .categoria-jogo {
@@ -97,12 +104,18 @@ section {
     border-radius: 100px;
     font-weight: bold;
     color: white;
+    flex-shrink: 0;
 }
 
 .jogo-descricao {
     color: #ccc;
     margin: 0;
     margin-top: 8px;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .back-to-top-container {
@@ -122,7 +135,7 @@ section {
     text-decoration: none;
 }
 
-/*  Modal */
+/* Modal */
 
 .modal-backdrop {
     position: fixed;
@@ -244,7 +257,6 @@ input[type="file"] {
   cursor: pointer;
 }
 
-/* Estiliza o botão "Escolher arquivo" */
 input[type="file"]::file-selector-button {
   background-color: #C23FD9;
   color: white;
@@ -256,7 +268,6 @@ input[type="file"]::file-selector-button {
   transition: 0.2s;
 }
 
-/* Efeito ao passar o mouse */
 input[type="file"]::file-selector-button:hover {
   background-color: #83029c;
 }
@@ -413,4 +424,75 @@ input[type="file"]::file-selector-button:hover {
 
 .botao-cancelar:hover {
     background-color: #202024;
+}
+
+@media screen and (max-width: 970px) {
+    .jogos-container {
+        width: 90%;
+    }
+
+    .jogo-card {
+        flex-direction: column; 
+        gap: 12px;
+        padding-bottom: 3rem;
+    }
+
+    .imagem-jogo {
+        width: 100%;
+        height: auto;
+        max-height: 200px;
+        object-fit: cover;
+    }
+
+    .jogo-descricao {
+        display: none; 
+    }
+    
+    .container-jogo-nome {
+        justify-content: flex-start;
+    }
+    
+    .excluir-container {
+        top: auto; 
+        bottom: 16px;
+        right: 16px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .modal-content {
+        max-width: 100%;
+        margin: 1rem;
+        padding: 1rem;
+        max-height: 95vh;
+    }
+
+    .nomeEimagem-container, 
+    .categoria-e-iamgem-container, 
+    .youtube-twitch-container, 
+    .jogo-outros-container {
+        flex-direction: column;
+        gap: 16px;
+    }
+
+    .nomeJogo, .imagemJogo, .origemJogo, .categoriaJogo, .link-content {
+        width: 100%; 
+    }
+    
+    .titulo-container-modal {
+        text-align: center;
+    }
+    
+    .botoes-container {
+        justify-content: center;
+    }
+
+    .adicionar-container-botao {
+        padding: 12px;
+        gap: 10px;
+    }
+    
+    .botao-cancelar {
+        padding: 12px;
+    }
 }
