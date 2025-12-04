@@ -4,6 +4,10 @@
     box-sizing: border-box;
 }
 
+body {
+    font-family: 'Inter', sans-serif;
+}
+
 section {
     width: 100%;
     min-height: 100vh;
@@ -20,12 +24,14 @@ main {
     align-items: center;
     width: 80%;
     margin-top: 5rem;
+    flex-grow: 1;
 }
 
 .container-titulo {
     display: flex;
     flex-direction: column;
     align-items: center;
+    text-align: center;
 }
 
 .titulo-contato {
@@ -39,6 +45,7 @@ main {
     color: #B9B9B9;
     margin-top: 1rem;
     margin-bottom: 3rem;
+    max-width: 600px;
 }
 
 .formulario-container {
@@ -75,6 +82,13 @@ main {
     color: #fff;
     background-color: #121216;
     transition: 0.2s;
+    appearance: none; 
+}
+
+select {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%23C23FD9' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 1rem center;
 }
 
 .input-nome:focus, .input-email:focus, select:focus, .textarea:focus {
@@ -90,6 +104,7 @@ main {
     color: #fff;
     height: 150px;
     transition: 0.2s;
+    resize: vertical;
 }
 
 .botao-enviar {
@@ -105,17 +120,62 @@ main {
     margin-top: 1rem;
 }
 
+.botao-enviar:hover {
+    background-color: #83029c;
+    transform: scale(1.02);
+}
+
+/* FOOTER ATUALIZADO (IGUAL AO DO PLANOS) */
 footer {
     display: flex;
     justify-content: center;
     align-items: center;
     background-color: #121216;
     border-top: 2px solid #303030;
-    height: 150px;
+    padding: 2rem 10px; /* Usando padding em vez de altura fixa */
     width: 100%;
 }
 
 footer p {
     color: #fff;
     margin: 0;
+    text-align: center;
+    max-width: 90%; /* Adicionado do planos */
+}
+
+@media screen and (max-width: 900px) {
+    main {
+        width: 90%;
+    }
+    .formulario-container {
+        width: 80%;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .titulo-contato {
+        font-size: 2.5rem;
+    }
+    .paragrafo-contato {
+        font-size: 1.2rem;
+        margin-bottom: 2rem;
+    }
+    .formulario-container {
+        width: 95%;
+        padding: 1.5rem;
+        margin-bottom: 3rem;
+    }
+    .input-nome, .input-email, select, .textarea {
+        padding: 0.8rem;
+    }
+    .botao-enviar {
+        padding: 0.9rem;
+    }
+    footer {
+        padding: 1.5rem 0; /* Ajustado para mobile */
+    }
+    footer p {
+        font-size: 0.8rem;
+        max-width: 95%; /* Adicionado do planos */
+    }
 }
